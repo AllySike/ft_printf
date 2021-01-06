@@ -1,69 +1,115 @@
-#include <stdarg.h>
-#include "Libft/libft.h"
+//#include "Libft/libft.h"
+#include "ft_printf.h"
 //#include <fcntl.h>
 //#include <stdlib.h>
 //#include <string.h>
 
-int ft_sort_flags(char **line, int counter, va_list *args)
+int		ft_sort_flags(char **line, va_list args, t_flags *flags, char **out)
 {
-	if (*line == '-')
+	while (*line && **line)
 	{
-		//minus = 1;
-		*(*line)++;
-	}
-	if (*line == '0')
-	{
-		//null = 1;
-		*(*line)++;
-	}
-	if (*line == '.')
-	{
-		//period = 1;
-		*(*line)++;
-	}
-	if (*line == '*')
-	{
-		//asterisk = 1;
-		*(*line)++;
-	}
-	*(*line)++;
-	counter++;
-    return (1);
-}
-
-int ft_handle_text(char **line, int counter, va_list *args)
-{
-
-}
-
-int ft_handle_numbers(char **line, int counter, va_list *args)
-{
-
-}
-
-int ft_printf(const char *line, ...)
-{
-    va_list args;
-    int		output;
-
-    output = 0;
-    va_start(args, line);
-    while (*line)
-    {
-        if (*line == '%')
-        	if (ft_sort_flags(&line, output, &args) < 0)
-        		return (-1);
-        else
+		if (!ft_istype(**line) && !ft_isdigit(**line) && !ft_isflag(**line))
+			break ;//printf("\n%*40.*.*kekr %ds%dr", 1, 1, 1, 3.0, 4, 5 );
+		if ((char)**line == '-')
+			ft_add_minus(&(*line), flags);
+		if ((char)**line == '0' && !(*flags).minus)
 		{
-			if (ft_putchar(*line) < 0)
+			(*flags).zero = 1;
+			*(*line)++;
+		}
+		if ((char)**line == '*')
+			ft_add_unspecified_width(args, &(*line), flags);
+		if ((char)**line == '.')
+			ft_add_precision(args, &(*line), flags);
+		if (ft_isdigit(**line))
+			ft_add_width(&(*line), flags);
+		if (ft_istype(**line))
+			return (ft_handle_text(&(*line), args, *flags, &(*out)));
+	}
+    return (1);//return (counter);
+}
+
+int		ft_handle_text(char **line, va_list args, t_flags flags, char **out)
+{
+	int counter;
+
+	if (**line == 'c')
+	{
+		counter = ft_print_char(args, flags, &(*out));
+		*(*line)++;
+		return (counter);
+	}
+	else if(**line == 's')
+		return (1);
+	else if(**line == '%')
+		return (2);
+	else if(**line == 'p')
+		return (3);
+	else
+		return (ft_handle_numbers(&(*line), args, &(*out)));
+}
+
+int		ft_handle_numbers(char **line, va_list args, char **out)
+{
+	int counter;
+
+	counter = 0;
+	if (**line == 'd')
+		return (0);
+	else if(**line == 'i')
+		return (1);
+	else if(**line == 'u')
+		return (2);
+	else if(**line == 'x')
+		return (3);
+	else if(**line == 'X')
+		return (4);
+	else
+		return (counter);
+}
+
+int 	ft_inner_printf(char *line, va_list args, char **out)
+{
+	t_flags	flags;
+	int		output;
+	char	mass[2];
+
+	output = 0;
+	while (*line)
+	{
+		if (*line == '%')
+		{
+			flags = ft_init_flags();
+			*line++;
+			output += ft_sort_flags(&(line), args, &flags, &(*out));
+			if (!output)
 				return (-1);
+		}
+		else
+		{
+			mass[0] = *line;
+			ft_strjoin(&(*out), mass);
 			*line++;
 			output++;
 		}
-    }
-    va_end(args);
-    return (output);
+	}
+	return (output);
 }
 
-//printf("%d\n", *args);
-//letter = (char*)va_arg(args, int);
+int		ft_printf(const char *input, ...)
+{
+    va_list args;
+    char 	*line;
+	int		output;
+	char 	*out;
+
+    line = input;
+    if (!(out = (char *)malloc(sizeof(char) * 1)))
+    	return (-1);
+    va_start(args, input);
+    output = ft_inner_printf(line, args, &out);
+    va_end(args);
+    ft_putstr(out);
+    free(out);
+    return (output);
+}
