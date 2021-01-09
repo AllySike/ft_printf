@@ -1,15 +1,23 @@
-//#include "Libft/libft.h"
-#include "ft_printf.h"
-//#include <fcntl.h>
-//#include <stdlib.h>
-//#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/09 19:13:59 by kgale             #+#    #+#             */
+/*   Updated: 2021/01/09 19:14:59 by kgale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		ft_sort_flags(char **line, va_list args, t_flags *flags, char **out)
+#include "ft_printf.h"
+
+int	ft_sort_flags(char **line, va_list args, t_flags *flags, char **out)
 {
 	while (*line && **line)
 	{
 		if (!ft_istype(**line) && !ft_isdigit(**line) && !ft_isflag(**line))
-			break ;//printf("\n%*40.*.*kekr %ds%dr", 1, 1, 1, 3.0, 4, 5 );
+			return (ft_print_defined_char((*(*line)++), *flags, &(*out)));
 		if ((char)**line == '-')
 			ft_add_minus(&(*line), flags);
 		if ((char)**line == '0' && !(*flags).minus)
@@ -26,49 +34,54 @@ int		ft_sort_flags(char **line, va_list args, t_flags *flags, char **out)
 		if (ft_istype(**line))
 			return (ft_handle_text(&(*line), args, *flags, &(*out)));
 	}
-    return (1);//return (counter);
+	return (1); //return (counter);
 }
 
-int		ft_handle_text(char **line, va_list args, t_flags flags, char **out)
+int	ft_handle_text(char **line, va_list args, t_flags flags, char **out)
 {
-	int counter;
-
 	if (**line == 'c')
 	{
-		counter = ft_print_char(args, flags, &(*out));
 		*(*line)++;
-		return (counter);
+		return (ft_print_char(args, flags, &(*out)));
 	}
-	else if(**line == 's')
-		return (1);
-	else if(**line == '%')
+	else if (**line == 's')
+	{
+		*(*line)++;
+		return (ft_print_string(args, flags, &(*out)));
+	}
+	else if (**line == '%')
 		return (2);
-	else if(**line == 'p')
+	else if (**line == 'p')
 		return (3);
 	else
-		return (ft_handle_numbers(&(*line), args, &(*out)));
+		return (ft_handle_numbers(&(*line), args, flags, &(*out)));
 }
 
-int		ft_handle_numbers(char **line, va_list args, char **out)
+int	ft_handle_numbers(char **line, va_list args, t_flags flags, char **out)
 {
-	int counter;
-
-	counter = 0;
-	if (**line == 'd')
-		return (0);
-	else if(**line == 'i')
-		return (1);
-	else if(**line == 'u')
+	if (**line == 'd' || **line == 'i')
+	{
+		*(*line)++;
+		if (flags.precision < 0 && !flags.minus)
+			flags.precision = flags.width - 1;
+		else if (flags.precision < 0 && flags.minus)
+		{
+//			flags.width = flags.precision;
+			flags.precision = 0;
+		}
+		return (ft_print_int(args, flags, &(*out)));
+	}
+	else if (**line == 'u')
 		return (2);
-	else if(**line == 'x')
+	else if (**line == 'x')
 		return (3);
-	else if(**line == 'X')
+	else if (**line == 'X')
 		return (4);
 	else
-		return (counter);
+		return (0);
 }
 
-int 	ft_inner_printf(char *line, va_list args, char **out)
+int	ft_inner_printf(char *line, va_list args, char **out)
 {
 	t_flags	flags;
 	int		output;
@@ -96,20 +109,20 @@ int 	ft_inner_printf(char *line, va_list args, char **out)
 	return (output);
 }
 
-int		ft_printf(const char *input, ...)
+int	ft_printf(const char *input, ...)
 {
-    va_list args;
-    char 	*line;
+	va_list	args;
+	char	*line;
 	int		output;
-	char 	*out;
+	char	*out;
 
-    line = input;
-    if (!(out = (char *)malloc(sizeof(char) * 1)))
-    	return (-1);
-    va_start(args, input);
-    output = ft_inner_printf(line, args, &out);
-    va_end(args);
-    ft_putstr(out);
-    free(out);
-    return (output);
+	line = input;
+	if (!(out = (char *)malloc(sizeof(char) * 1)))
+		return (-1);
+	va_start(args, input);
+	output = ft_inner_printf(line, args, &out);
+	va_end(args);
+	ft_putstr(out);
+	free(out);
+	return (output);
 }

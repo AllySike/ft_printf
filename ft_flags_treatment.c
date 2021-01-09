@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_flags_treatment.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/09 19:12:26 by kgale             #+#    #+#             */
+/*   Updated: 2021/01/09 19:12:40 by kgale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_add_minus(char **line, t_flags *flags)
@@ -34,9 +46,10 @@ void	ft_add_precision(va_list args, char **line, t_flags *flags)
 	if (**line == '*')
 	{
 		(*flags).precision = va_arg(args, int);
-		*line++;
+		*(*line)++;
 	}
-	else {
+	else
+	{
 		(*flags).precision = 0;
 		while (ft_isdigit(**line))
 		{

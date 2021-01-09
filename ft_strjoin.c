@@ -6,24 +6,21 @@
 /*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:36:49 by kgale             #+#    #+#             */
-/*   Updated: 2020/11/03 22:44:39 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/09 19:13:19 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strlen(const char *str)
+int		ft_strlen(const char *str)
 {
 	int	count;
 
-	if (!str)
+	if (!str && !*str)
 		return (0);
 	count = 0;
-	while (*str)
-	{
+	while (str[count])
 		count++;
-		str++;
-	}
 	return (count);
 }
 
