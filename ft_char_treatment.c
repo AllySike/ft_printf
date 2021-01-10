@@ -12,30 +12,6 @@
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
-{
-	if ((write(1, &c, 1)) < 0)
-		return (-1);
-	else
-		return (1);
-}
-
-int	ft_print_width(int width, int len, int zero, char **line)
-{
-	int	count;
-
-	count = 0;
-	while (count + len < width)
-	{
-		if (zero)
-			ft_strjoin(&(*line), "0");
-		else
-			ft_strjoin(&(*line), " ");
-		count++;
-	}
-	return (count);
-}
-
 int	ft_print_char(va_list *args, t_flags flags, char **line)
 {
 	int		counter;

@@ -36,15 +36,3 @@ int 	ft_print_width(int width, int len, int zero, char **line)
 	return (count);
 }
 
-void	ft_putstr(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (s != NULL)
-		while (s[i])
-		{
-			ft_putchar(s[i]);
-			i++;
-		}
-}

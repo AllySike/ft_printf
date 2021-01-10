@@ -142,33 +142,6 @@ printf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/build
 .PHONY : printf/fast
 
-Libft/ft_putnbr.obj: Libft/ft_putnbr.c.obj
-
-.PHONY : Libft/ft_putnbr.obj
-
-# target to build an object file
-Libft/ft_putnbr.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/Libft/ft_putnbr.c.obj
-.PHONY : Libft/ft_putnbr.c.obj
-
-Libft/ft_putnbr.i: Libft/ft_putnbr.c.i
-
-.PHONY : Libft/ft_putnbr.i
-
-# target to preprocess a source file
-Libft/ft_putnbr.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/Libft/ft_putnbr.c.i
-.PHONY : Libft/ft_putnbr.c.i
-
-Libft/ft_putnbr.s: Libft/ft_putnbr.c.s
-
-.PHONY : Libft/ft_putnbr.s
-
-# target to generate assembly for a file
-Libft/ft_putnbr.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/Libft/ft_putnbr.c.s
-.PHONY : Libft/ft_putnbr.c.s
-
 ft_char_treatment.obj: ft_char_treatment.c.obj
 
 .PHONY : ft_char_treatment.obj
@@ -250,6 +223,33 @@ ft_flags_treatment.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_flags_treatment.c.s
 .PHONY : ft_flags_treatment.c.s
 
+ft_int_treatment.obj: ft_int_treatment.c.obj
+
+.PHONY : ft_int_treatment.obj
+
+# target to build an object file
+ft_int_treatment.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_int_treatment.c.obj
+.PHONY : ft_int_treatment.c.obj
+
+ft_int_treatment.i: ft_int_treatment.c.i
+
+.PHONY : ft_int_treatment.i
+
+# target to preprocess a source file
+ft_int_treatment.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_int_treatment.c.i
+.PHONY : ft_int_treatment.c.i
+
+ft_int_treatment.s: ft_int_treatment.c.s
+
+.PHONY : ft_int_treatment.s
+
+# target to generate assembly for a file
+ft_int_treatment.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_int_treatment.c.s
+.PHONY : ft_int_treatment.c.s
+
 ft_printf.obj: ft_printf.c.obj
 
 .PHONY : ft_printf.obj
@@ -303,6 +303,33 @@ ft_putchar.s: ft_putchar.c.s
 ft_putchar.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_putchar.c.s
 .PHONY : ft_putchar.c.s
+
+ft_string_treatment.obj: ft_string_treatment.c.obj
+
+.PHONY : ft_string_treatment.obj
+
+# target to build an object file
+ft_string_treatment.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_string_treatment.c.obj
+.PHONY : ft_string_treatment.c.obj
+
+ft_string_treatment.i: ft_string_treatment.c.i
+
+.PHONY : ft_string_treatment.i
+
+# target to preprocess a source file
+ft_string_treatment.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_string_treatment.c.i
+.PHONY : ft_string_treatment.c.i
+
+ft_string_treatment.s: ft_string_treatment.c.s
+
+.PHONY : ft_string_treatment.s
+
+# target to generate assembly for a file
+ft_string_treatment.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_string_treatment.c.s
+.PHONY : ft_string_treatment.c.s
 
 ft_strjoin.obj: ft_strjoin.c.obj
 
@@ -367,9 +394,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... printf
-	@echo ... Libft/ft_putnbr.obj
-	@echo ... Libft/ft_putnbr.i
-	@echo ... Libft/ft_putnbr.s
 	@echo ... ft_char_treatment.obj
 	@echo ... ft_char_treatment.i
 	@echo ... ft_char_treatment.s
@@ -379,12 +403,18 @@ help:
 	@echo ... ft_flags_treatment.obj
 	@echo ... ft_flags_treatment.i
 	@echo ... ft_flags_treatment.s
+	@echo ... ft_int_treatment.obj
+	@echo ... ft_int_treatment.i
+	@echo ... ft_int_treatment.s
 	@echo ... ft_printf.obj
 	@echo ... ft_printf.i
 	@echo ... ft_printf.s
 	@echo ... ft_putchar.obj
 	@echo ... ft_putchar.i
 	@echo ... ft_putchar.s
+	@echo ... ft_string_treatment.obj
+	@echo ... ft_string_treatment.i
+	@echo ... ft_string_treatment.s
 	@echo ... ft_strjoin.obj
 	@echo ... ft_strjoin.i
 	@echo ... ft_strjoin.s

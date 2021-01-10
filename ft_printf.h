@@ -41,7 +41,6 @@ t_flags	ft_init_flags(void);
 int		ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out);
 void	ft_strjoin(char **s1, char const *s2);
 int		ft_print_char(va_list *args, t_flags flags, char **line);
-int 	ft_print_width(int width, int len, int zero, char **line);
 void	ft_putstr(char *s);
 int 	ft_print_defined_char(char c, t_flags flags, char **line);
 int 	ft_print_int(va_list *args, t_flags flags, char **line);
@@ -50,5 +49,6 @@ int 	ft_max(int a, int b);
 void	ft_putstr(char *s);
 int 	ft_print_string(va_list *args, t_flags flags, char **line);
 char	*ft_strdup(const char *s1);
+int 	ft_print_width(int width, int len, int zero, char **line);
 
 #endif

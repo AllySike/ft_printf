@@ -84,11 +84,14 @@ int				ft_print_int(va_list *args, t_flags flags, char **line)
 	counter = 0;
     //////////////////
     len = ft_strlen(mass);
+//    if (flags.precision != 0)
+//        flags.zero = 0;
     if (flags.precision < 0)
     {
         flags.precision = 0;
-        if (i < 0 && !flags.minus)
-            len++;
+        /*
+        if (i < 0)// && !flags.minus)
+            len++;*/
 //            flags.width++;
     }
 	//////////////////

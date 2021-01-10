@@ -74,9 +74,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/Libft/ft_putnbr.c">
-			<Option target="printf"/>
-		</Unit>
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_char_treatment.c">
 			<Option target="printf"/>
 		</Unit>
@@ -86,6 +83,9 @@
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_flags_treatment.c">
 			<Option target="printf"/>
 		</Unit>
+		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_int_treatment.c">
+			<Option target="printf"/>
+		</Unit>
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_printf.c">
 			<Option target="printf"/>
 		</Unit>
@@ -93,6 +93,9 @@
 			<Option target="printf"/>
 		</Unit>
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_putchar.c">
+			<Option target="printf"/>
+		</Unit>
+		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_string_treatment.c">
 			<Option target="printf"/>
 		</Unit>
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_strjoin.c">
