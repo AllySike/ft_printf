@@ -25,12 +25,12 @@ void	ft_putstr(char *s)
 		}
 }
 
-int		ft_print_string(va_list args, t_flags flags, char **line)
+int		ft_print_string(va_list *args, t_flags flags, char **line)
 {
 	int		counter;
 	char	*mass;
 
-	mass = va_arg(args, char *);
+	mass = va_arg(*args, char *);
 	if (flags.minus)
 		ft_strjoin(&(*line), mass);
 	counter = ft_print_width(flags.width,

@@ -10,7 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_printf.h"
+
+char	*ft_strdup(const char *s1)
+{
+    char	*output;
+    int		len;
+
+    len = ft_strlen(s1);
+    output = (char *)malloc(sizeof(char) * (len + 1));
+    if (output == NULL)
+        return (NULL);
+    output[len] = '\0';
+    while (len-- > 0)
+        output[len] = s1[len];
+    return (output);
+}
 
 int		ft_strlen(const char *str)
 {
@@ -24,7 +39,7 @@ int		ft_strlen(const char *str)
 	return (count);
 }
 
-void	*ft_strjoin(char **s1, char const *s2)
+void	ft_strjoin(char **s1, char const *s2)
 {
 	int		len1;
 	int		len2;
@@ -36,19 +51,18 @@ void	*ft_strjoin(char **s1, char const *s2)
 	index = 0;
 	tmp = *s1;
 	*s1 = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (*s1 == NULL)
-		return (NULL);
-	while (index < len1)
+	if (*s1)
 	{
-		(*s1)[index] = tmp[index];
-		index++;
-	}
-	index = 0;
-	while (index < len2)
-	{
-		(*s1)[index + len1] = s2[index];
-		index++;
-	}
-	(*s1)[len1 + len2] = '\0';
-	free(tmp);
+        while (index < len1) {
+            (*s1)[index] = tmp[index];
+            index++;
+        }
+        index = 0;
+        while (index < len2) {
+            (*s1)[index + len1] = s2[index];
+            index++;
+        }
+        (*s1)[len1 + len2] = '\0';
+        free(tmp);
+    }
 }

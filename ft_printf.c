@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-int	ft_sort_flags(char **line, va_list args, t_flags *flags, char **out)
+int	ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out)
 {
 	while (*line && **line)
 	{
 		if (!ft_istype(**line) && !ft_isdigit(**line) && !ft_isflag(**line))
-			return (ft_print_defined_char((*(*line)++), *flags, &(*out)));
+			return (0);//ft_print_defined_char((*(*line)++), *flags, &(*out)));
 		if ((char)**line == '-')
 			ft_add_minus(&(*line), flags);
 		if ((char)**line == '0' && !(*flags).minus)
@@ -26,50 +26,43 @@ int	ft_sort_flags(char **line, va_list args, t_flags *flags, char **out)
 			*(*line)++;
 		}
 		if ((char)**line == '*')
-			ft_add_unspecified_width(args, &(*line), flags);
+			ft_add_unspecified_width(&(*args), &(*line), flags);
 		if ((char)**line == '.')
-			ft_add_precision(args, &(*line), flags);
+			ft_add_precision(&(*args), &(*line), flags);
 		if (ft_isdigit(**line))
 			ft_add_width(&(*line), flags);
 		if (ft_istype(**line))
-			return (ft_handle_text(&(*line), args, *flags, &(*out)));
+			return (ft_handle_text(&(*line), &(*args), *flags, &(*out)));
 	}
 	return (1); //return (counter);
 }
 
-int	ft_handle_text(char **line, va_list args, t_flags flags, char **out)
+int	ft_handle_text(char **line, va_list *args, t_flags flags, char **out)
 {
 	if (**line == 'c')
 	{
 		*(*line)++;
-		return (ft_print_char(args, flags, &(*out)));
+		return (ft_print_char(&(*args), flags, &(*out)));
 	}
 	else if (**line == 's')
 	{
 		*(*line)++;
-		return (ft_print_string(args, flags, &(*out)));
+		return (ft_print_string(&(*args), flags, &(*out)));
 	}
 	else if (**line == '%')
 		return (2);
 	else if (**line == 'p')
 		return (3);
 	else
-		return (ft_handle_numbers(&(*line), args, flags, &(*out)));
+		return (ft_handle_numbers(&(*line), &(*args), flags, &(*out)));
 }
 
-int	ft_handle_numbers(char **line, va_list args, t_flags flags, char **out)
+int	ft_handle_numbers(char **line, va_list *args, t_flags flags, char **out)
 {
 	if (**line == 'd' || **line == 'i')
 	{
 		*(*line)++;
-		if (flags.precision < 0 && !flags.minus)
-			flags.precision = flags.width - 1;
-		else if (flags.precision < 0 && flags.minus)
-		{
-//			flags.width = flags.precision;
-			flags.precision = 0;
-		}
-		return (ft_print_int(args, flags, &(*out)));
+		return (ft_print_int(&(*args), flags, &(*out)));
 	}
 	else if (**line == 'u')
 		return (2);
@@ -81,7 +74,7 @@ int	ft_handle_numbers(char **line, va_list args, t_flags flags, char **out)
 		return (0);
 }
 
-int	ft_inner_printf(char *line, va_list args, char **out)
+int	ft_inner_printf(char *line, va_list *args, char **out)
 {
 	t_flags	flags;
 	int		output;
@@ -92,9 +85,9 @@ int	ft_inner_printf(char *line, va_list args, char **out)
 	{
 		if (*line == '%')
 		{
-			flags = ft_init_flags();
+		    flags = ft_init_flags();
 			*line++;
-			output += ft_sort_flags(&(line), args, &flags, &(*out));
+			output += ft_sort_flags(&(line), &(*args), &flags, &(*out));
 			if (!output)
 				return (-1);
 		}
@@ -116,13 +109,14 @@ int	ft_printf(const char *input, ...)
 	int		output;
 	char	*out;
 
-	line = input;
+	line = ft_strdup(input);
 	if (!(out = (char *)malloc(sizeof(char) * 1)))
 		return (-1);
 	va_start(args, input);
-	output = ft_inner_printf(line, args, &out);
+	output = ft_inner_printf(line, &args, &out);
 	va_end(args);
 	ft_putstr(out);
 	free(out);
+	free(line);
 	return (output);
 }

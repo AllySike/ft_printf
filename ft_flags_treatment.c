@@ -22,16 +22,17 @@ void	ft_add_minus(char **line, t_flags *flags)
 void	ft_add_width(char **line, t_flags *flags)
 {
 	(*flags).width = 0;
-	while (*line && ft_isdigit((*line)[0]))
-	{
-		(*flags).width = ((*flags).width * 10) + **line - '0';
-		*(*line)++;
-	}
+	if (*line)
+        while (ft_isdigit(**line))
+        {
+            (*flags).width = ((*flags).width * 10) + **line - '0';
+            *(*line)++;
+        }
 }
 
-void	ft_add_unspecified_width(va_list args, char **line, t_flags *flags)
+void	ft_add_unspecified_width(va_list *args, char **line, t_flags *flags)
 {
-	(*flags).width = va_arg(args, int);
+	(*flags).width = va_arg(*args, int);
 	if ((*flags).width < 0)
 	{
 		(*flags).width *= -1;
@@ -40,12 +41,12 @@ void	ft_add_unspecified_width(va_list args, char **line, t_flags *flags)
 	*(*line)++;
 }
 
-void	ft_add_precision(va_list args, char **line, t_flags *flags)
+void	ft_add_precision(va_list *args, char **line, t_flags *flags)
 {
 	*(*line)++;
 	if (**line == '*')
 	{
-		(*flags).precision = va_arg(args, int);
+		(*flags).precision = va_arg(*args, int);
 		*(*line)++;
 	}
 	else

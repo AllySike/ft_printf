@@ -36,12 +36,12 @@ int	ft_print_width(int width, int len, int zero, char **line)
 	return (count);
 }
 
-int	ft_print_char(va_list args, t_flags flags, char **line)
+int	ft_print_char(va_list *args, t_flags flags, char **line)
 {
 	int		counter;
 	char	mass[2];
 
-	mass[0] = (char)va_arg(args, int);
+	mass[0] = (char)va_arg(*args, int);
 	mass[1] = '\0';
 	if (flags.minus)
 		ft_strjoin(&(*line), mass);

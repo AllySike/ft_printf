@@ -72,27 +72,39 @@ int				ft_max(int a, int b)
 	return (b);
 }
 
-int				ft_print_int(va_list args, t_flags flags, char **line)
+int				ft_print_int(va_list *args, t_flags flags, char **line)
 {
 	int		counter;
 	char	*mass;
 	int		len;
 	int		i;
 
-	i = va_arg(args, int);
+	i = va_arg(*args, int);
 	mass = ft_itoa(i);
-	len = ft_strlen(mass);
 	counter = 0;
-	if (!flags.minus && flags.width > ft_max(len, flags.precision))
+    //////////////////
+    len = ft_strlen(mass);
+    if (flags.precision < 0)
+    {
+        flags.precision = 0;
+        if (i < 0 && !flags.minus)
+            len++;
+//            flags.width++;
+    }
+	//////////////////
+	if (!flags.minus && !flags.zero && flags.width > ft_max(len, flags.precision))
 		counter += ft_print_width(flags.width,
-							ft_max(len, flags.precision) + 1, 0, *(&line));
-	if (i < 0 && counter++ >= 0)
-		ft_strjoin(&(*line), "-");
+							ft_max(len, flags.precision), 0, *(&line));
+	if (i < 0 && ++counter)
+        ft_strjoin(&(*line), "-");
+    if (!flags.minus && flags.zero && flags.width > ft_max(len, flags.precision))
+        counter += ft_print_width(flags.width,
+                                  ft_max(len, flags.precision), 1, *(&line));
 	if (flags.precision > len)
 		counter += ft_print_width(flags.precision, len, 1, *(&line));
 	ft_strjoin(&(*line), mass);
 	if (flags.minus && counter + len < flags.width)
-		ft_print_width(flags.width, len + counter, 0, *(&line));
+		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
 	free(mass);
-	return (ft_max(len, ft_max(flags.precision, flags.width)));
+	return (counter + len);//ft_max(len, ft_max(flags.precision, flags.width)));
 }
