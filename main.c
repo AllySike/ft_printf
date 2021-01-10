@@ -3,8 +3,14 @@
 #include <unistd.h>
 
 int ft_printf(const char *line, ...);
+int	int_main(void);
 
-int	main(void)
+int main()
+{
+    int_main();
+}
+
+int	int_main(void)
 {
 	/* Call with 3 integers (-1 is used as terminator). */
 	//out1 = ft_printf("ft_printf: %i4dlol %i-*.*i %i200s %i*k %i.2i end", 67890, 4, 22, 1, "50", 15);
@@ -29,6 +35,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, 10, 7, -123456, 10, 15, -123456,  2, 3, -123456===");
     fflush(stdout);
@@ -38,6 +46,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, 10, -7, 123456, 10, -15, 123456,  2, -3, 123456===");
     fflush(stdout);
@@ -47,6 +57,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, 10, -7, -123456, 10, -15, -123456,  2, -3, -123456===");
     fflush(stdout);
@@ -56,6 +68,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, -10, 7, 123456, -10, 15, 123456,  -2, 3, 123456===");
     fflush(stdout);
@@ -65,6 +79,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, -10, 7, -123456, -10, 15, -123456,  -2, 3, -123456===");
     fflush(stdout);
@@ -74,6 +90,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, -10, -7, 123456, -10, -15, 123456,  -2, -3, 123456===");
     fflush(stdout);
@@ -83,6 +101,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, -10, -7, -123456, -10, -15, -123456,  -2, -3, -123456===");
     fflush(stdout);
@@ -92,6 +112,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, 10, 7, 123456, 10, 15, 123456,  2, 3, 123456===");
     fflush(stdout);
@@ -101,6 +123,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, 10, 7, -123456, 10, 15, -123456,  2, 3, -123456===");
     fflush(stdout);
@@ -110,6 +134,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, 10, -7, 123456, 10, -15, 123456,  2, -3, 123456===");
     fflush(stdout);
@@ -119,6 +145,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, 10, -7, -123456, 10, -15, -123456,  2, -3, -123456===");
     fflush(stdout);
@@ -128,6 +156,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, -10, 7, 123456, -10, 15, 123456,  -2, 3, 123456===");
     fflush(stdout);
@@ -137,6 +167,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, -10, 7, -123456, -10, 15, -123456,  -2, 3, -123456===");
     fflush(stdout);
@@ -146,6 +178,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456===");
     fflush(stdout);
@@ -155,6 +189,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, -10, -7, -123456, -10, -15, -123456,  -2, -3, -123456===");
     fflush(stdout);
@@ -164,6 +200,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, 10, 7, 123456, 10, 15, 123456,  2, 3, 123456===");
     fflush(stdout);
@@ -173,6 +211,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, 10, 7, -123456, 10, 15, -123456,  2, 3, -123456===");
     fflush(stdout);
@@ -182,6 +222,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, 10, -7, 123456, 10, -15, 123456,  2, -3, 123456===");
     fflush(stdout);
@@ -191,6 +233,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, 10, -7, -123456, 10, -15, -123456,  2, -3, -123456===");
     fflush(stdout);
@@ -200,6 +244,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, -10, 7, 123456, -10, 15, 123456,  -2, 3, 123456===");
     fflush(stdout);
@@ -209,6 +255,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, -10, 7, -123456, -10, 15, -123456,  -2, 3, -123456===");
     fflush(stdout);
@@ -218,6 +266,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456===");
     fflush(stdout);
@@ -227,6 +277,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
 
     printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, -10, -7, -123456, -10, -15, -123456,  -2, -3, -123456===");
     fflush(stdout);
@@ -236,6 +288,8 @@ int	main(void)
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
     if (count > 0)
         printf("\n\033[1;31mYou sucked %d times\033[0m\n", count);
     else
