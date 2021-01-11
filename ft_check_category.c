@@ -34,3 +34,21 @@ t_flags	ft_init_flags(void)
 	flags.zero = 0;
 	return (flags);
 }
+
+int ft_check_specifier(char *line)
+{
+    *line++;
+    while (*line)
+    {
+        if (!ft_istype(*line) && !ft_isdigit(*line) && !ft_isflag(*line))
+            return (0);
+        if (*line == '-' || *line == '0' || *line == '*' || ft_isdigit(*line))
+            *line++;
+        if (*line == '.' && line[1] && (ft_isdigit(line[1]) || line[1] == '*'))
+            *line++;
+		else if (*line == '.')
+            return (0);
+        if (ft_istype(*line))
+            return (1);
+    }
+}

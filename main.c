@@ -181,11 +181,11 @@ int	int_main(void)
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
-    printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456===");
+    printf("\n\n===|%%i%%0*.*i| |%%0*.*d| |%%0*.*d|, -10, -7, 123456, -10, -15, 123456,  -2, -3, 123456===");
     fflush(stdout);
-    out1 = ft_printf("\nft_printf: |%0*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456, 'e');
+    out1 = ft_printf("\nft_printf: |%0*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, -15, 123456,  -2, -3, 123456, 'e');
     printf("\t%i", out1);
-    out2 = printf("\noriginalf: |%0*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456, 'e');
+    out2 = printf("\noriginalf: |%0*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, -15, 123456,  -2, -3, 123456, 'e');
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
@@ -269,11 +269,11 @@ int	int_main(void)
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
-    printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456===");
+    printf("\n\n===|%%i%%-*.*i| |%%-*.*d| |%%-*.*d|, -10, -7, 123456, -10, -15, 123456,  -2, -3, 123456===");
     fflush(stdout);
-    out1 = ft_printf("\nft_printf: |%-*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456, 'e');
+    out1 = ft_printf("\nft_printf: |%-*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, -15, 123456,  -2, -3, 123456, 'e');
     printf("\t%i", out1);
-    out2 = printf("\noriginalf: |%-*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, 15, -123456,  -2, 3, -123456, 'e');
+    out2 = printf("\noriginalf: |%-*.*i|  |%*.*d|  |%*.*d| %c end", -10, -7, 123456, -10, -15, 123456,  -2, -3, 123456, 'e');
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
@@ -304,7 +304,7 @@ int	int_main(void)
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
 
-    printf("\n===|%%0i| |%%.0d| |%%0.0d|, 0, 0, 0===");
+    printf("\n===|%%0i| |%%.0d| |%%0.0d|, 1, -1, 1===");
     fflush(stdout);
     out1 = ft_printf("\nft_printf: |%0i|  |%.0d|  |%0.0d| %c end", 1, -1, 1, 'e');
     printf("\t%i", out1);
@@ -351,11 +351,22 @@ int	int_main(void)
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
 
-    printf("\n\n===|%%*i| |%%.*d| |%%*.*d|, 0, 0, 0, 0, 0, 0, 0===");
+    printf("\n\n===|%%.\\n5d| 10===");
     fflush(stdout);
-    out1 = ft_printf("\nft_printf: |%*i|  |%.*d|  |%*.*d| %c end", 0, 0, 0, 0, 0, 0, 0, 'e');
+    out1 = ft_printf("\nft_printf: |%.\n5d|", 10);
     printf("\t%i", out1);
-    out2 = printf("\noriginalf: |%*i|  |%.*d|  |%*.*d| %c end", 0, 0, 0, 0, 0, 0, 0, 'e');
+    out2 = printf("\noriginalf: |%.\n5d|", 10);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===|%%.0\\t5d| 10===");
+    fflush(stdout);
+    out1 = ft_printf("\nft_printf: |%-.k 5d|", 10);
+    printf("\t%i", out1);
+    out2 = printf("\noriginalf: |%-.k 5d|", 10);
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
@@ -374,7 +385,7 @@ int	int_main(void)
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
 
-    printf("\n===|%%0i| |%%.0d| |%%0.0d|, 0, 0, 0===");
+    printf("\n===|%%-0i| |%%-.0d| |%%-0.0d|, 0, 0, 0===");
     fflush(stdout);
     out1 = ft_printf("\nft_printf: |%-0i|  |%-.0d|  |%-.0d| %c end", 1, -1, 1, 'e');
     printf("\t%i", out1);

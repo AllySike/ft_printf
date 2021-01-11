@@ -51,5 +51,6 @@ void	ft_putstr(char *s);
 int 	ft_print_string(va_list *args, t_flags flags, char **line);
 char	*ft_strdup(const char *s1);
 int 	ft_print_width(int width, int len, int zero, char **line);
+int     ft_check_specifier(char *line);
 
 #endif
