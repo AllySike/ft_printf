@@ -290,6 +290,18 @@ int	int_main(void)
         printf("\n\033[1;31mYou suck!\033[0m");
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===|%%*i| |%%.*d| |%%*.*d|, 0, 0, 0, 0, 0, 0, 0===");
+    fflush(stdout);
+    out1 = ft_printf("\nft_printf: |%*i|  |%.*d|  |%*.*d| %c end", 0, 0, 0, 0, 0, 0, 0, 'e');
+    printf("\t%i", out1);
+    out2 = printf("\noriginalf: |%*i|  |%.*d|  |%*.*d| %c end", 0, 0, 0, 0, 0, 0, 0, 'e');
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
     if (count > 0)
         printf("\n\033[1;31mYou sucked %d times\033[0m\n", count);
     else

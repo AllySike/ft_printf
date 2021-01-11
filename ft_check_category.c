@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_check_category.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 11:37:13 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/09 19:12:53 by kgale            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -39,6 +28,7 @@ t_flags	ft_init_flags(void)
 	t_flags	flags;
 
 	flags.precision = 0;
+	flags.precisionset = 0;
 	flags.minus = 0;
 	flags.width = 0;
 	flags.zero = 0;

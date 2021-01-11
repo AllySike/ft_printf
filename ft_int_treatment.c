@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_int_treatment.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 19:51:56 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/09 19:10:10 by kgale            ###   ########.fr       */
+/*   Created: 2021/01/11 02:17:36 by marvin            #+#    #+#             */
+/*   Updated: 2021/01/11 02:17:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int		ft_count_range(int n)
 	if (n == 0)
 		range = 10;
 	range = 10 - range;
+    if (n == 0)
+        range++;
 	return (range);
 }
 
@@ -78,27 +80,27 @@ int				ft_print_int(va_list *args, t_flags flags, char **line)
 	char	*mass;
 	int		len;
 	int		i;
-	int     minus;
+	int		minus;
 
 	i = va_arg(*args, int);
 	mass = ft_itoa(i);
 	counter = 0;
-    len = ft_strlen(mass);
-    if (flags.precision < 0)
-        flags.precision = 0;
-    else
-        flags.zero = 0;
-    minus = 0;
-    if (i < 0)
-        minus++;
+	len = ft_strlen(mass);
+	if (flags.precision < 0)
+		flags.precision = 0;
+	else
+		flags.zero = 0;
+	minus = 0;
+	if (i < 0)
+		minus++;
 	if (!flags.minus && !flags.zero)
 		counter += ft_print_width(flags.width, ft_max(len + minus,
-            flags.precision + minus), 0, *(&line));
+			flags.precision + minus), 0, *(&line));
 	if (i < 0 && ++counter)
-        ft_strjoin(&(*line), "-");
-    if (!flags.minus && flags.zero)
-        counter += ft_print_width(flags.width,
-                                  ft_max(len + counter, flags.precision), 1, *(&line));
+		ft_strjoin(&(*line), "-");
+	if (!flags.minus && flags.zero)
+		counter += ft_print_width(flags.width,
+			ft_max(len + counter, flags.precision), 1, *(&line));
 	if (flags.precision > len)
 		counter += ft_print_width(flags.precision, len, 1, *(&line));
 	ft_strjoin(&(*line), mass);

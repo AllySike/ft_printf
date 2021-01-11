@@ -17,6 +17,7 @@ typedef struct	s_flags
 {
 	int			minus;
 	int 		precision;
+	int         precisionset;
 	int 		zero;
 	int 		width;
 }				t_flags;

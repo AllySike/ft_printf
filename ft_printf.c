@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/09 19:13:59 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/09 19:14:59 by kgale            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -62,6 +51,11 @@ int	ft_handle_numbers(char **line, va_list *args, t_flags flags, char **out)
 	if (**line == 'd' || **line == 'i')
 	{
 		*(*line)++;
+		if (flags.precisionset && !flags.precision)
+		{
+		    va_arg(*args, int);
+            return (0);
+        }
 		return (ft_print_int(&(*args), flags, &(*out)));
 	}
 	else if (**line == 'u')
@@ -85,7 +79,7 @@ int	ft_inner_printf(char *line, va_list *args, char **out)
 	{
 		if (*line == '%')
 		{
-		    flags = ft_init_flags();
+			flags = ft_init_flags();
 			*line++;
 			output += ft_sort_flags(&(line), &(*args), &flags, &(*out));
 			if (!output)

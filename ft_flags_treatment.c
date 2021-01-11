@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags_treatment.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/09 19:12:26 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/09 19:12:40 by kgale            ###   ########.fr       */
+/*   Created: 2021/01/11 02:18:13 by marvin            #+#    #+#             */
+/*   Updated: 2021/01/11 02:18:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	ft_add_width(char **line, t_flags *flags)
 {
 	(*flags).width = 0;
 	if (*line)
-        while (ft_isdigit(**line))
-        {
-            (*flags).width = ((*flags).width * 10) + **line - '0';
-            *(*line)++;
-        }
+		while (ft_isdigit(**line))
+		{
+			(*flags).width = ((*flags).width * 10) + **line - '0';
+			*(*line)++;
+		}
 }
 
 void	ft_add_unspecified_width(va_list *args, char **line, t_flags *flags)
@@ -44,6 +44,7 @@ void	ft_add_unspecified_width(va_list *args, char **line, t_flags *flags)
 void	ft_add_precision(va_list *args, char **line, t_flags *flags)
 {
 	*(*line)++;
+    (*flags).precisionset = 1;
 	if (**line == '*')
 	{
 		(*flags).precision = va_arg(*args, int);
