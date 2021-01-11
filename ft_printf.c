@@ -72,9 +72,11 @@ int	ft_inner_printf(char *line, va_list *args, char **out)
 {
 	t_flags	flags;
 	int		output;
-	char	mass[2];
+	int     percent;
+	char    mass[1];
 
 	output = 0;
+	percent = 0;
 	while (*line)
 	{
 		if (*line == '%' && ft_check_specifier(line))
@@ -87,10 +89,24 @@ int	ft_inner_printf(char *line, va_list *args, char **out)
 		}
 		else
 		{
-			mass[0] = *line;
-			ft_strjoin(&(*out), mass);
-			*line++;
-			output++;
+		    if (*line == '%')
+		        percent = 1;
+		    while (*line || percent == 1)
+            {
+		        mass[0] = *line;
+                ft_strjoin(&(*out), mass);
+                *line++;
+                output++;
+                if (*line && *line == '.')
+                {
+                    ft_strjoin(&(*out), ".0");
+                    *line++;
+                    output += 2;
+                    percent = 0;
+                }
+		        if (!*line || *line == '%' && !(percent = 0))
+                    break ;
+            }
 		}
 	}
 	return (output);
@@ -106,6 +122,7 @@ int	ft_printf(const char *input, ...)
 	line = ft_strdup(input);
 	if (!(out = (char *)malloc(sizeof(char) * 1)))
 		return (-1);
+	out[0] = '\0';
 	va_start(args, input);
 	output = ft_inner_printf(line, &args, &out);
 	va_end(args);
