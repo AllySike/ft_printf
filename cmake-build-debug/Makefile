@@ -331,6 +331,33 @@ ft_putchar.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_putchar.c.s
 .PHONY : ft_putchar.c.s
 
+ft_str_helpers.obj: ft_str_helpers.c.obj
+
+.PHONY : ft_str_helpers.obj
+
+# target to build an object file
+ft_str_helpers.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_str_helpers.c.obj
+.PHONY : ft_str_helpers.c.obj
+
+ft_str_helpers.i: ft_str_helpers.c.i
+
+.PHONY : ft_str_helpers.i
+
+# target to preprocess a source file
+ft_str_helpers.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_str_helpers.c.i
+.PHONY : ft_str_helpers.c.i
+
+ft_str_helpers.s: ft_str_helpers.c.s
+
+.PHONY : ft_str_helpers.s
+
+# target to generate assembly for a file
+ft_str_helpers.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_str_helpers.c.s
+.PHONY : ft_str_helpers.c.s
+
 ft_string_treatment.obj: ft_string_treatment.c.obj
 
 .PHONY : ft_string_treatment.obj
@@ -357,33 +384,6 @@ ft_string_treatment.s: ft_string_treatment.c.s
 ft_string_treatment.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_string_treatment.c.s
 .PHONY : ft_string_treatment.c.s
-
-ft_strjoin.obj: ft_strjoin.c.obj
-
-.PHONY : ft_strjoin.obj
-
-# target to build an object file
-ft_strjoin.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_strjoin.c.obj
-.PHONY : ft_strjoin.c.obj
-
-ft_strjoin.i: ft_strjoin.c.i
-
-.PHONY : ft_strjoin.i
-
-# target to preprocess a source file
-ft_strjoin.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_strjoin.c.i
-.PHONY : ft_strjoin.c.i
-
-ft_strjoin.s: ft_strjoin.c.s
-
-.PHONY : ft_strjoin.s
-
-# target to generate assembly for a file
-ft_strjoin.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_strjoin.c.s
-.PHONY : ft_strjoin.c.s
 
 main.obj: main.c.obj
 
@@ -442,12 +442,12 @@ help:
 	@echo ... ft_putchar.obj
 	@echo ... ft_putchar.i
 	@echo ... ft_putchar.s
+	@echo ... ft_str_helpers.obj
+	@echo ... ft_str_helpers.i
+	@echo ... ft_str_helpers.s
 	@echo ... ft_string_treatment.obj
 	@echo ... ft_string_treatment.i
 	@echo ... ft_string_treatment.s
-	@echo ... ft_strjoin.obj
-	@echo ... ft_strjoin.i
-	@echo ... ft_strjoin.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

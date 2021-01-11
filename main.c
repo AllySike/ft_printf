@@ -27,6 +27,7 @@ int	int_main(void)
 //    printf("\033[0;31m"); //Set the text to the color red.
 //    printf("Hello\n"); //Display Hello in red.
 //    printf("\033[0m"); //Resets the text to default color.
+/*
     printf("\n===|%%i%%*.*i| |%%*.*d| |%%*.*d|, 10, 7, 123456, 10, 15, 123456,  2, 3, 123456===");
 	fflush(stdout);
     out1 = ft_printf("\nft_printf: |%*.*i|  |%*.*d|  |%*.*d| %c end", 10, 7, 123456, 10, 15, 123456,  2, 3, 123456, 'e');
@@ -396,7 +397,7 @@ int	int_main(void)
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
 
-    printf("\n===|%%-0i| |%%-.0d| |%%-0.0d|, 0, 0, 0===");
+    printf("\n===|%%-0i| |%%-.0d| |%%-0.0d|, 1, -1, 1===");
     fflush(stdout);
     out1 = ft_printf("\nft_printf: |%-0i|  |%-.0d|  |%-.0d| %c end", 1, -1, 1, 'e');
     printf("\t%i", out1);
@@ -419,6 +420,163 @@ int	int_main(void)
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
+    printf("\n\n===%%-5.d, 0===");
+    fflush(stdout);
+    out1 = ft_printf("\nft_printf: |%-5.d|", 0);
+    printf("\t%i", out1);
+    out2 = printf("\noriginalf: |%-5.d|", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===%%-5.0d, 0===");
+    fflush(stdout);
+    out1 = ft_printf("\nft_printf: |%-5.0d|", 0);
+    printf("\t%i", out1);
+    out2 = printf("\noriginalf: |%-5.0d|", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+*/
+    printf("\n\n===d_prec0val0_implicit%%.d, 0===\n");
+    fflush(stdout);
+    out1 = ft_printf("%.d", 0);
+    printf("\t%i\n", out1);
+    out2 = printf("%.d", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_prec0val0_w%%5.0d\", 0===\n");
+    fflush(stdout);
+    out1 = ft_printf("%5.0d", 0);
+    printf("\t%i\n", out1);
+    out2 = printf("%5.0d", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_prec0val0_w_impl%%5.d\", 0\", 0===\n");
+    fflush(stdout);
+    out1 = ft_printf("%5.d", 0);
+    printf("\t%i\n", out1);
+    out2 = printf("%5.d", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_prec0val0_wlj%%-5.0d, 0===\n");
+    fflush(stdout);
+    out1 = ft_printf("%-5.0d", 0);
+    printf("\t%i\n", out1);
+    out2 = printf("%-5.0d", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_prec0val0_wlj_impl%%-5.d, 0===\n");
+    fflush(stdout);
+    out1 = ft_printf("%-5.d", 0);
+    printf("\t%i\n", out1);
+    out2 = printf("%-5.d", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+
+    printf("\n\n===d_width_neg_fits %%7d, -14===\n");
+    fflush(stdout);
+    out1 = ft_printf("%7d", -14);
+    printf("\t%i\n", out1);
+    out2 = printf("%7d", -14);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_width_zero_fits %%3d, 0===\n");
+    fflush(stdout);
+    out1 = ft_printf("%3d", 0);
+    printf("\t%i\n", out1);
+    out2 = printf("%3d", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_zp_pos_fits %%05d, 43===\n");
+    fflush(stdout);
+    out1 = ft_printf("%05d", 43);
+    printf("\t%i\n", out1);
+    out2 = printf("%05d", 43);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_zp_neg_fits %%07d, -54===\n");
+    fflush(stdout);
+    out1 = ft_printf("%07d", -54);
+    printf("\t%i\n", out1);
+    out2 = printf("%07d", -54);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===d_zp_zero_fits %%03d, 0===\n");
+    fflush(stdout);
+    out1 = ft_printf("%03d", 0);
+    printf("\t%i\n", out1);
+    out2 = printf("%03d", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+/*
+
+    printf("\n\n===%%05d, 0===");
+    fflush(stdout);
+    out1 = ft_printf("\nft_printf: |%05d|", 0);
+    printf("\t%i", out1);
+    out2 = printf("\noriginalf: |%05d|", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+    printf("\n\n===%%5.0d, 0===");
+    fflush(stdout);
+    out1 = ft_printf("\nft_printf: |%5.0d|", 0);
+    printf("\t%i", out1);
+    out2 = printf("\noriginalf: |%5.0d|", 0);
+    printf("\t%i", out2);
+    if (out1 != out2 && ++count)
+        printf("\n\033[1;31mYou suck!\033[0m");
+    else
+        printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+*/
     if (count > 0)
         printf("\n\033[1;31mYou sucked %d times\033[0m\n", count);
     else

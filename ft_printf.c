@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/11 05:42:31 by kgale             #+#    #+#             */
+/*   Updated: 2021/01/11 05:42:31 by kgale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -6,7 +17,7 @@ int	ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out)
 	while (*line && **line)
 	{
 		if (!ft_istype(**line) && !ft_isdigit(**line) && !ft_isflag(**line))
-			return (0);//ft_print_defined_char((*(*line)++), *flags, &(*out)));
+			return (0); //ft_print_defined_char((*(*line)++), *flags, &(*out)));
 		if ((char)**line == '-')
 			ft_add_minus(&(*line), flags);
 		if ((char)**line == '0' && !(*flags).minus)
@@ -16,7 +27,7 @@ int	ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out)
 		}
 		if ((char)**line == '*')
 			ft_add_unspecified_width(&(*args), &(*line), flags);
-		if ((char)**line == '.')// && (ft_isdigit(line[0][1]) || line[0][1] == '*'))
+		if ((char)**line == '.') //&& (ft_isdigit(line[0][1]) || line[0][1] == '*'))
 			ft_add_precision(&(*args), &(*line), flags);
 		if (ft_isdigit(**line))
 			ft_add_width(&(*line), flags);
@@ -65,8 +76,8 @@ int	ft_handle_numbers(char **line, va_list *args, t_flags flags, char **out)
 
 int	ft_inner_printf(char *line, va_list *args, char **out)
 {
-	t_flags	flags;
-	int		output;
+	t_flags flags;
+	int output;
 
 	output = 0;
 	while (*line)
@@ -77,20 +88,20 @@ int	ft_inner_printf(char *line, va_list *args, char **out)
 			*line++;
 			output += ft_sort_flags(&(line), &(*args), &flags, &(*out));
 			if (!output)
-				return (-1);
+				return (0);
 		}
 		else
-		    output += ft_print_chars(&line, &(*out));
+			output += ft_print_chars(&line, &(*out));
 	}
 	return (output);
 }
 
 int	ft_printf(const char *input, ...)
 {
-	va_list	args;
-	char	*line;
-	int		output;
-	char	*out;
+	va_list args;
+	char *line;
+	int output;
+	char *out;
 
 	line = ft_strdup(input);
 	if (!(out = (char *)malloc(sizeof(char) * 1)))

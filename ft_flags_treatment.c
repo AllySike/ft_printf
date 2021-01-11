@@ -50,6 +50,11 @@ void	ft_add_precision(va_list *args, char **line, t_flags *flags)
 		(*flags).precision = va_arg(*args, int);
 		*(*line)++;
 	}
+	else if (ft_istype(**line))
+    {
+        (*flags).precision = 0;
+        (*flags).precisionset = 1;
+    }
 	else
 	{
 		(*flags).precision = 0;

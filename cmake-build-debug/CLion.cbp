@@ -98,10 +98,10 @@
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_putchar.c">
 			<Option target="printf"/>
 		</Unit>
-		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_string_treatment.c">
+		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_str_helpers.c">
 			<Option target="printf"/>
 		</Unit>
-		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_strjoin.c">
+		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_string_treatment.c">
 			<Option target="printf"/>
 		</Unit>
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/main.c">
