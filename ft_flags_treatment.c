@@ -53,10 +53,11 @@ void	ft_add_precision(va_list *args, char **line, t_flags *flags)
 	else
 	{
 		(*flags).precision = 0;
-		while (ft_isdigit(**line))
-		{
-			(*flags).precision = ((*flags).precision * 10) + (**line - '0');
-			*(*line)++;
-		}
+		if (ft_isdigit(**line))
+            while (ft_isdigit(**line))
+            {
+                (*flags).precision = ((*flags).precision * 10) + (**line - '0');
+                *(*line)++;
+            }
 	}
 }

@@ -16,8 +16,13 @@ int	ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out)
 		}
 		if ((char)**line == '*')
 			ft_add_unspecified_width(&(*args), &(*line), flags);
-		if ((char)**line == '.')
+		if ((char)**line == '.' && (ft_isdigit(line[0][1]) || line[0][1] == '*'))
 			ft_add_precision(&(*args), &(*line), flags);
+		else if (**line == '.')
+        {
+            *(*line)++;
+            return (0);
+        }
 		if (ft_isdigit(**line))
 			ft_add_width(&(*line), flags);
 		if (ft_istype(**line))
