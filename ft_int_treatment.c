@@ -83,6 +83,8 @@ int				ft_print_int(va_list *args, t_flags flags, char **line)
 	int		minus;
 
 	i = va_arg(*args, int);
+    if (!i && flags.precisionset && !flags.precision)
+        return (0);
 	mass = ft_itoa(i);
 	counter = 0;
 	len = ft_strlen(mass);

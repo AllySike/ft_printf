@@ -51,11 +51,6 @@ int	ft_handle_numbers(char **line, va_list *args, t_flags flags, char **out)
 	if (**line == 'd' || **line == 'i')
 	{
 		*(*line)++;
-		if (flags.precisionset && !flags.precision)
-		{
-		    va_arg(*args, int);
-            return (0);
-        }
 		return (ft_print_int(&(*args), flags, &(*out)));
 	}
 	else if (**line == 'u')
