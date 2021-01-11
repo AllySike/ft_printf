@@ -12,6 +12,35 @@
 
 #include "ft_printf.h"
 
+int ft_print_chars(char **line, char **out)
+{
+    int     percent;
+    char    mass[1];
+    int     output;
+
+    percent = 0;
+    output = 0;
+    if (**line == '%')
+        percent = 1;
+    while (**line || percent == 1)
+    {
+        mass[0] = **line;
+        ft_strjoin(&(*out), mass);
+        *(*line)++;
+        output++;
+        if (**line && **line == '.')
+        {
+            ft_strjoin(&(*out), ".0");
+            *(*line)++;
+            output += 2;
+            percent = 0;
+        }
+        if (!**line || **line == '%' && !(percent = 0))
+            break ;
+    }
+    return (output);
+}
+
 int	ft_print_char(va_list *args, t_flags flags, char **line)
 {
 	int		counter;

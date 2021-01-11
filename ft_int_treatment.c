@@ -67,11 +67,16 @@ char			*ft_itoa(int n)
 	return (output);
 }
 
-int				ft_max(int a, int b)
+int    ft_int_flags(t_flags *flags, char **mass, int i)
 {
-	if (a > b)
-		return (a);
-	return (b);
+    int len;
+    if ((*flags).precision < 0)
+        (*flags).precision = 0;
+    else
+        (*flags).zero = 0;
+    *mass = ft_itoa(i);
+    len = ft_strlen(*mass);
+    return (len);
 }
 
 int				ft_print_int(va_list *args, t_flags flags, char **line)
@@ -82,18 +87,10 @@ int				ft_print_int(va_list *args, t_flags flags, char **line)
 	int		i;
 	int		minus;
 
-	i = va_arg(*args, int);
-    if (!i && flags.precisionset && !flags.precision)
+    if (!(i = va_arg(*args, int)) && flags.precisionset && !flags.precision)
         return (0);
-	mass = ft_itoa(i);
-	counter = 0;
-	len = ft_strlen(mass);
-	if (flags.precision < 0)
-		flags.precision = 0;
-	else
-		flags.zero = 0;
-	minus = 0;
-	if (i < 0)
+    len = ft_int_flags(&flags, &mass, i);
+	if (!(counter = 0) && !(minus = 0) && i < 0)
 		minus++;
 	if (!flags.minus && !flags.zero)
 		counter += ft_print_width(flags.width, ft_max(len + minus,

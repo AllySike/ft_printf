@@ -223,6 +223,33 @@ ft_flags_treatment.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_flags_treatment.c.s
 .PHONY : ft_flags_treatment.c.s
 
+ft_helpers.obj: ft_helpers.c.obj
+
+.PHONY : ft_helpers.obj
+
+# target to build an object file
+ft_helpers.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_helpers.c.obj
+.PHONY : ft_helpers.c.obj
+
+ft_helpers.i: ft_helpers.c.i
+
+.PHONY : ft_helpers.i
+
+# target to preprocess a source file
+ft_helpers.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_helpers.c.i
+.PHONY : ft_helpers.c.i
+
+ft_helpers.s: ft_helpers.c.s
+
+.PHONY : ft_helpers.s
+
+# target to generate assembly for a file
+ft_helpers.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\printf.dir\build.make CMakeFiles/printf.dir/ft_helpers.c.s
+.PHONY : ft_helpers.c.s
+
 ft_int_treatment.obj: ft_int_treatment.c.obj
 
 .PHONY : ft_int_treatment.obj
@@ -403,6 +430,9 @@ help:
 	@echo ... ft_flags_treatment.obj
 	@echo ... ft_flags_treatment.i
 	@echo ... ft_flags_treatment.s
+	@echo ... ft_helpers.obj
+	@echo ... ft_helpers.i
+	@echo ... ft_helpers.s
 	@echo ... ft_int_treatment.obj
 	@echo ... ft_int_treatment.i
 	@echo ... ft_int_treatment.s

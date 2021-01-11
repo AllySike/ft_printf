@@ -83,6 +83,9 @@
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_flags_treatment.c">
 			<Option target="printf"/>
 		</Unit>
+		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_helpers.c">
+			<Option target="printf"/>
+		</Unit>
 		<Unit filename="D:/фллеха/Учёба хочу домой/Школа 21/ft_printf/ft_int_treatment.c">
 			<Option target="printf"/>
 		</Unit>

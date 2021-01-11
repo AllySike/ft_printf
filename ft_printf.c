@@ -18,11 +18,6 @@ int	ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out)
 			ft_add_unspecified_width(&(*args), &(*line), flags);
 		if ((char)**line == '.')// && (ft_isdigit(line[0][1]) || line[0][1] == '*'))
 			ft_add_precision(&(*args), &(*line), flags);
-//		else if (**line == '.')
-//        {
-//            *(*line)++;
-//            return (0);
-//        }
 		if (ft_isdigit(**line))
 			ft_add_width(&(*line), flags);
 		if (ft_istype(**line))
@@ -72,11 +67,8 @@ int	ft_inner_printf(char *line, va_list *args, char **out)
 {
 	t_flags	flags;
 	int		output;
-	int     percent;
-	char    mass[1];
 
 	output = 0;
-	percent = 0;
 	while (*line)
 	{
 		if (*line == '%' && ft_check_specifier(line))
@@ -88,26 +80,7 @@ int	ft_inner_printf(char *line, va_list *args, char **out)
 				return (-1);
 		}
 		else
-		{
-		    if (*line == '%')
-		        percent = 1;
-		    while (*line || percent == 1)
-            {
-		        mass[0] = *line;
-                ft_strjoin(&(*out), mass);
-                *line++;
-                output++;
-                if (*line && *line == '.')
-                {
-                    ft_strjoin(&(*out), ".0");
-                    *line++;
-                    output += 2;
-                    percent = 0;
-                }
-		        if (!*line || *line == '%' && !(percent = 0))
-                    break ;
-            }
-		}
+		    output += ft_print_chars(&line, &(*out));
 	}
 	return (output);
 }

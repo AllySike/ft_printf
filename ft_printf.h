@@ -52,5 +52,8 @@ int 	ft_print_string(va_list *args, t_flags flags, char **line);
 char	*ft_strdup(const char *s1);
 int 	ft_print_width(int width, int len, int zero, char **line);
 int     ft_check_specifier(char *line);
+int     ft_print_chars(char **line, char **out);
+int     ft_int_flags(t_flags *flags, char **mass, int i);
+char	*ft_itoa(int n);
 
 #endif
