@@ -103,11 +103,11 @@ int				ft_print_int(va_list *args, t_flags flags, char **line)
 			ft_max(len + counter, flags.precision), 1, *(&line));
 	if (flags.precision > len)
 		counter += ft_print_width(flags.precision, len, 1, *(&line));
-	if (i || ((flags.precisionset && flags.precision) || !flags.precisionset))
+	if ((flags.precisionset && flags.precision) || !flags.precisionset)
 	    ft_strjoin(&(*line), mass);
 	else
 	    len = 0;
-	if (flags.minus && counter + len < flags.width)
+	if (flags.minus && counter + len < flags.width || !i)
 		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
 	free(mass);
 	return (counter + len);

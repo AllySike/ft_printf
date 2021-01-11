@@ -105,7 +105,7 @@ int	ft_printf(const char *input, ...)
 
 	line = ft_strdup(input);
 	if (!(out = (char *)malloc(sizeof(char) * 1)))
-		return (-1);
+		return (0);
 	out[0] = '\0';
 	va_start(args, input);
 	output = ft_inner_printf(line, &args, &out);
