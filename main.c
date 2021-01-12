@@ -441,7 +441,7 @@ int	int_main(void)
         printf("\n\033[1;31mYou suck!\033[0m");
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
-*/
+
     printf("\n\n===d_prec0val0_implicit%%.d, 0===\n");
     fflush(stdout);
     out1 = ft_printf("%.d", 0);
@@ -508,7 +508,7 @@ int	int_main(void)
         printf("\n\033[1;31mYou suck!\033[0m");
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
-
+*/
     printf("\n\n===d_width_zero_fits %%3d, 0===\n");
     fflush(stdout);
     out1 = ft_printf("%3d", 0);
@@ -519,7 +519,7 @@ int	int_main(void)
         printf("\n\033[1;31mYou suck!\033[0m");
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
-
+/*
     printf("\n\n===d_zp_pos_fits %%05d, 43===\n");
     fflush(stdout);
     out1 = ft_printf("%05d", 43);
@@ -552,7 +552,7 @@ int	int_main(void)
         printf("\n\033[1;31mYou suck!\033[0m");
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
-/*
+
 
     printf("\n\n===%%05d, 0===");
     fflush(stdout);
@@ -576,7 +576,106 @@ int	int_main(void)
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
+	printf("\n\n===d_neg_prec_star_01 %%.*d, -3, 12345===\n");
+	fflush(stdout);
+	out1 = ft_printf("%.*d", -3, 12345);
+	printf("\t%i\n", out1);
+	out2 = printf("%.*d", -3, 12345);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+	printf("\n\n===d_neg_prec_star_02 %%.*d, -1, 12345===\n");
+	fflush(stdout);
+	out1 = ft_printf("%.*d", -1, 12345);
+	printf("\t%i\n", out1);
+	out2 = printf("%.*d", -1, 12345);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+	printf("\n\n===d_neg_prec_star_03 %%.*d, -1, 0===\n");
+	fflush(stdout);
+	out1 = ft_printf("%.*d", -1, 0);
+	printf("\t%i\n", out1);
+	out2 = printf("%.*d", -1, 0);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+
+	printf("\n\n===d_prec_width_ff_pos_zp %%08.5d, 34\n");
+	fflush(stdout);
+	out1 = ft_printf("%08.5d", 34);
+	printf("\t%i\n", out1);
+	out2 = printf("%08.5d", 34);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+	printf("\n\n===d_prec_width_ff_neg_zp %%010.5d, -216===\n");
+	fflush(stdout);
+	out1 = ft_printf("%010.5d", -216);
+	printf("\t%i\n", out1);
+	out2 = printf("%010.5d", -216);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+	printf("\n\n===d_prec_width_ff_zero_zp %%08.5d, 0===\n");
+	fflush(stdout);
+	out1 = ft_printf("%08.5d", 0);
+	printf("\t%i\n", out1);
+	out2 = printf("%08.5d", 0);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+	printf("\n\n===d_prec_width_nf_pos_zp %%08.3d, 8375===\n");
+	fflush(stdout);
+	out1 = ft_printf("%08.3d", 8375);
+	printf("\t%i\n", out1);
+	out2 = printf("%08.3d", 8375);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+	printf("\n\n===d_prec_width_nf_neg_zp %%08.3d, -8473===\n");
+	fflush(stdout);
+	out1 = ft_printf("%08.3d", -8473);
+	printf("\t%i\n", out1);
+	out2 = printf("%08.3d", -8473);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
 */
+	printf("\n\n===d_prec_width_fit_fit_zero %%8.5d, 0===\n");
+	fflush(stdout);
+	out1 = ft_printf("%8.5d", 0);
+	printf("\t%i\n", out1);
+	out2 = printf("%8.5d", 0);
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
     if (count > 0)
         printf("\n\033[1;31mYou sucked %d times\033[0m\n", count);
     else

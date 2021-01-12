@@ -55,5 +55,6 @@ int     ft_check_specifier(char *line);
 int     ft_print_chars(char **line, char **out);
 int     ft_int_flags(t_flags *flags, char **mass, int i);
 char	*ft_itoa(int n);
+int		ft_handle_int_flags(t_flags flags, char **line, int i, char **mass);
 
 #endif
