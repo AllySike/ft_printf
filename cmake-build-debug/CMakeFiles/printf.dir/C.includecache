@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/kgale/Desktop/ft_printf/ft_helpers.c
-ft_printf.h
-/Users/kgale/Desktop/ft_printf/ft_printf.h
-
 /Users/kgale/Desktop/ft_printf/ft_printf.h
 stdarg.h
 -
@@ -18,6 +14,18 @@ stdlib.h
 string.h
 -
 fcntl.h
+-
+unistd.h
+-
+
+/Users/kgale/Desktop/ft_printf/ft_str_helpers.c
+ft_printf.h
+/Users/kgale/Desktop/ft_printf/ft_printf.h
+
+/Users/kgale/Desktop/ft_printf/main.c
+stdio.h
+-
+stdarg.h
 -
 unistd.h
 -

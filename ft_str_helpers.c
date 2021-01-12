@@ -53,11 +53,11 @@ void	ft_strjoin(char **s1, char const *s2)
 	*s1 = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 	if (*s1)
 	{
-		while (index < len1)
-			(*s1)[index] = tmp[index++];
+		while (index++ < len1)
+			(*s1)[index - 1] = tmp[index - 1];
 		index = 0;
-		while (index < len2)
-			(*s1)[index + len1] = s2[index++];
+		while (index++ < len2)
+			(*s1)[index + len1 - 1] = s2[index - 1];
 		(*s1)[len1 + len2] = '\0';
 		free(tmp);
 	}

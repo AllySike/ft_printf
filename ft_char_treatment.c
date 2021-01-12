@@ -16,14 +16,12 @@ int	ft_print_chars(char **line, char **out)
 {
 	int		percent;
 	char	mass[1];
-	int		output;
 
 	percent = 0;
-	output = 0;
 	mass[0] = **line;
 	ft_strjoin(&(*out), mass);
-	*(*line)++;
-	return (output);
+	(*line)++;
+	return (1);
 }
 
 int	ft_print_char(va_list *args, t_flags flags, char **line)
@@ -33,6 +31,8 @@ int	ft_print_char(va_list *args, t_flags flags, char **line)
 
 	mass[0] = (char)va_arg(*args, int);
 	mass[1] = '\0';
+	if (!mass[0])
+		mass[0] = (char)'\x00';
 	if (flags.minus)
 		ft_strjoin(&(*line), mass);
 	counter = ft_print_width(flags.width, 1, flags.zero, &(*line));

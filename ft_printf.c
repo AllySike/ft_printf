@@ -14,6 +14,9 @@
 
 int	ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out)
 {
+	int counter;
+
+	counter = 0;
 	while (*line && **line)
 	{
 		if (!ft_istype(**line) && !ft_isdigit(**line) && !ft_isflag(**line))
@@ -23,7 +26,7 @@ int	ft_sort_flags(char **line, va_list *args, t_flags *flags, char **out)
 		if ((char)**line == '0' && !(*flags).minus)
 		{
 			(*flags).zero = 1;
-			*(*line)++;
+			(*line)++;
 		}
 		if ((char)**line == '*')
 			ft_add_unspecified_width(&(*args), &(*line), flags);
@@ -41,12 +44,12 @@ int	ft_handle_text(char **line, va_list *args, t_flags flags, char **out)
 {
 	if (**line == 'c')
 	{
-		*(*line)++;
+		(*line)++;
 		return (ft_print_char(&(*args), flags, &(*out)));
 	}
 	else if (**line == 's')
 	{
-		*(*line)++;
+		(*line)++;
 		return (ft_print_string(&(*args), flags, &(*out)));
 	}
 	else if (**line == '%')
@@ -61,7 +64,7 @@ int	ft_handle_numbers(char **line, va_list *args, t_flags flags, char **out)
 {
 	if (**line == 'd' || **line == 'i')
 	{
-		*(*line)++;
+		(*line)++;
 		return (ft_print_int(&(*args), flags, &(*out)));
 	}
 	else if (**line == 'u')
@@ -85,7 +88,7 @@ int	ft_inner_printf(char *line, va_list *args, char **out)
 		if (*line == '%' && ft_check_specifier(line))
 		{
 			flags = ft_init_flags();
-			*line++;
+			line++;
 			output += ft_sort_flags(&(line), &(*args), &flags, &(*out));
 			if (!output)
 				return (0);

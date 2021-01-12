@@ -28,7 +28,7 @@ int	ft_handle_int_flags(t_flags flags, char **line, int i, char **mass)
 	len = ft_int_flags(&flags, &(*mass), i);
 	if (!(minus = 0) && i < 0)
 		minus++;
-	if (!(counter = 0) && (!flags.minus && !flags.zero) || (flags.zero
+	if ((!(counter = 0) && (!flags.minus && !flags.zero)) || (flags.zero
 	&& flags.precisionset && flags.precision < flags.width))
 		counter += ft_print_width(flags.width, ft_max(len + minus,
 			flags.precision + minus), 0, *(&line));
@@ -43,7 +43,7 @@ int	ft_handle_int_flags(t_flags flags, char **line, int i, char **mass)
 		ft_strjoin(&(*line), *mass);
 	else
 		len = 0;
-	if (flags.minus && counter + len < flags.width || !i)
+	if ((flags.minus && counter + len < flags.width) || !i)
 		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
 	return (counter + len);
 }
