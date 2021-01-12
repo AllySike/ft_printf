@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags_treatment.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 02:18:13 by marvin            #+#    #+#             */
-/*   Updated: 2021/01/11 02:18:13 by marvin           ###   ########.fr       */
+/*   Updated: 2021/01/12 18:15:38 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,25 @@ void	ft_add_unspecified_width(va_list *args, char **line, t_flags *flags)
 void	ft_add_precision(va_list *args, char **line, t_flags *flags)
 {
 	*(*line)++;
-    (*flags).precisionset = 1;
+	(*flags).precisionset = 1;
 	if (**line == '*')
 	{
 		(*flags).precision = va_arg(*args, int);
 		*(*line)++;
 	}
 	else if (ft_istype(**line))
-    {
-        (*flags).precision = 0;
-        (*flags).precisionset = 1;
-    }
+	{
+		(*flags).precision = 0;
+		(*flags).precisionset = 1;
+	}
 	else
 	{
 		(*flags).precision = 0;
 		if (ft_isdigit(**line))
-            while (ft_isdigit(**line))
-            {
-                (*flags).precision = ((*flags).precision * 10) + (**line - '0');
-                *(*line)++;
-            }
+			while (ft_isdigit(**line))
+			{
+				(*flags).precision = ((*flags).precision * 10) + (**line - '0');
+				*(*line)++;
+			}
 	}
 }

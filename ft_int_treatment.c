@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_int_treatment.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 02:17:36 by marvin            #+#    #+#             */
-/*   Updated: 2021/01/11 02:17:36 by marvin           ###   ########.fr       */
+/*   Updated: 2021/01/12 18:07:40 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int		ft_count_range(int n)
 	if (n == 0)
 		range = 10;
 	range = 10 - range;
-    if (n == 0)
-        range++;
+	if (n == 0)
+		range++;
 	return (range);
 }
 
@@ -67,27 +67,28 @@ char			*ft_itoa(int n)
 	return (output);
 }
 
-int    ft_int_flags(t_flags *flags, char **mass, int i)
+int				ft_int_flags(t_flags *flags, char **mass, int i)
 {
-    int len;
-    if ((*flags).precision < 0)
-    {
+	int	len;
+
+	if ((*flags).precision < 0)
+	{
 		(*flags).precision = 0;
 		(*flags).precisionset = 0;
 	}
-    *mass = ft_itoa(i);
-    len = ft_strlen(*mass);
-    return (len);
+	*mass = ft_itoa(i);
+	len = ft_strlen(*mass);
+	return (len);
 }
 
 int				ft_print_int(va_list *args, t_flags flags, char **line)
 {
-	int 	counter;
+	int		counter;
 	char	*mass;
 	int		i;
 
-    i = va_arg(*args, int);// ||
-    counter = ft_handle_int_flags(flags, &(*line), i, &mass);
+	i = va_arg(*args, int);
+	counter = ft_handle_int_flags(flags, &(*line), i, &mass);
 	free(mass);
 	return (counter);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kgale <kgale@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 13:19:51 by kgale             #+#    #+#             */
-/*   Updated: 2020/11/04 15:33:57 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/12 18:14:36 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	if ((write(1, &c, 1)) < 0)
 		return (-1);
@@ -20,9 +20,9 @@ int		ft_putchar(char c)
 		return (1);
 }
 
-int 	ft_print_width(int width, int len, int zero, char **line)
+int	ft_print_width(int width, int len, int zero, char **line)
 {
-	int		count;
+	int	count;
 
 	count = 0;
 	while (count + len < width)
@@ -35,4 +35,3 @@ int 	ft_print_width(int width, int len, int zero, char **line)
 	}
 	return (count);
 }
-

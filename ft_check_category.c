@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_check_category.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/12 18:15:49 by kgale             #+#    #+#             */
+/*   Updated: 2021/01/12 18:16:25 by kgale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -35,20 +46,21 @@ t_flags	ft_init_flags(void)
 	return (flags);
 }
 
-int ft_check_specifier(char *line)
+int		ft_check_specifier(char *line)
 {
-    *line++;
-    while (*line)
-    {
-        if (!ft_istype(*line) && !ft_isdigit(*line) && !ft_isflag(*line))
-            return (0);
-        if (*line == '-' || *line == '0' || *line == '*' || ft_isdigit(*line))
-            *line++;
-        if (*line == '.' && line[1] && (ft_isdigit(line[1]) || line[1] == '*' || ft_istype(line[1])))
-            *line++;
+	*line++;
+	while (*line)
+	{
+		if (!ft_istype(*line) && !ft_isdigit(*line) && !ft_isflag(*line))
+			return (0);
+		if (*line == '-' || *line == '0' || *line == '*' || ft_isdigit(*line))
+			*line++;
+		if (*line == '.' && line[1] && (ft_isdigit(line[1])
+		|| line[1] == '*' || ft_istype(line[1])))
+			*line++;
 		else if (*line == '.')
-            return (0);
-        if (ft_istype(*line))
-            return (1);
-    }
+			return (0);
+		if (ft_istype(*line))
+			return (1);
+	}
 }
