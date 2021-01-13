@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/printf.dir/ft_flags_treatment.c.o"
   "CMakeFiles/printf.dir/ft_helpers.c.o"
   "CMakeFiles/printf.dir/ft_int_treatment.c.o"
+  "CMakeFiles/printf.dir/ft_p_treatment.c.o"
   "CMakeFiles/printf.dir/ft_printf.c.o"
   "CMakeFiles/printf.dir/ft_putchar.c.o"
   "CMakeFiles/printf.dir/ft_str_helpers.c.o"

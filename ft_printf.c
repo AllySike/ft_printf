@@ -55,7 +55,10 @@ int	ft_handle_text(char **line, va_list *args, t_flags flags, char **out)
 	else if (**line == '%')
 		return (ft_put_percent(&(*line), flags, &(*out)));
 	else if (**line == 'p')
-		return (3);
+	{
+		(*line)++;
+		return (ft_print_p(&(*args), flags, &(*out)));
+	}
 	else
 		return (ft_handle_numbers(&(*line), &(*args), flags, &(*out)));
 }
@@ -75,7 +78,7 @@ int	ft_handle_numbers(char **line, va_list *args, t_flags flags, char **out)
 	else if (**line == 'x' || **line == 'X')
 	{
 		(*line)++;
-		if (**line == 'x')
+		if (*(*line - 1) == 'x')
 			return (ft_print_x(&(*args), flags, &(*out), 0));
 		return (ft_print_x(&(*args), flags, &(*out), 1));
 	}

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/kgale/Desktop/ft_printf/ft_flags_treatment.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_flags_treatment.c.o"
   "/Users/kgale/Desktop/ft_printf/ft_helpers.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_helpers.c.o"
   "/Users/kgale/Desktop/ft_printf/ft_int_treatment.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_int_treatment.c.o"
+  "/Users/kgale/Desktop/ft_printf/ft_p_treatment.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_p_treatment.c.o"
   "/Users/kgale/Desktop/ft_printf/ft_printf.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_printf.c.o"
   "/Users/kgale/Desktop/ft_printf/ft_putchar.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_putchar.c.o"
   "/Users/kgale/Desktop/ft_printf/ft_str_helpers.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_str_helpers.c.o"

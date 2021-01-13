@@ -16,6 +16,9 @@ CMakeFiles/printf.dir/ft_helpers.c.o: ../ft_printf.h
 CMakeFiles/printf.dir/ft_int_treatment.c.o: ../ft_int_treatment.c
 CMakeFiles/printf.dir/ft_int_treatment.c.o: ../ft_printf.h
 
+CMakeFiles/printf.dir/ft_p_treatment.c.o: ../ft_p_treatment.c
+CMakeFiles/printf.dir/ft_p_treatment.c.o: ../ft_printf.h
+
 CMakeFiles/printf.dir/ft_printf.c.o: ../ft_printf.c
 CMakeFiles/printf.dir/ft_printf.c.o: ../ft_printf.h
 

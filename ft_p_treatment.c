@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_x_treatment.c                                   :+:      :+:    :+:   */
+/*   ft_p_treatment.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/13 16:13:46 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/13 16:14:21 by kgale            ###   ########.fr       */
+/*   Created: 2021/01/13 16:11:01 by kgale             #+#    #+#             */
+/*   Updated: 2021/01/13 17:25:56 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_hex_lengths(unsigned int n, size_t *len, unsigned int *width)
+static void				ft_p_lengths(unsigned long long int n,
+size_t *len, unsigned long long int *width)
 {
 	if (n < 0)
 		n *= -1;
@@ -25,23 +26,22 @@ static void		ft_hex_lengths(unsigned int n, size_t *len, unsigned int *width)
 	}
 }
 
-char			*ft_xtoa(unsigned int n, int x)
+char					*ft_ptoa(unsigned long long int n)
 {
-	size_t			len;
-	unsigned int	width;
-	size_t			cur;
-	char			*str;
-	char			*hex;
+	size_t					len;
+	unsigned long long int	width;
+	size_t					cur;
+	char					*str;
+	char					*hex;
 
-	if (x == 0)
-		hex = "0123456789abcdef";
-	else
-		hex = "0123456789ABCDEF";
-	ft_hex_lengths(n, &len, &width);
-	str = (char *)malloc(sizeof(*str) * (len + 1));
+	hex = "0123456789abcdef";
+	ft_p_lengths(n, &len, &width);
+	str = (char *)malloc(sizeof(*str) * (len + 3));
 	if (str == NULL)
 		return (NULL);
-	cur = 0;
+	str[0] = '0';
+	str[1] = 'x';
+	cur = 2;
 	if (n < 0)
 		n *= -1;
 	while (width >= 1)
@@ -53,7 +53,8 @@ char			*ft_xtoa(unsigned int n, int x)
 	return (str);
 }
 
-int				ft_x_flags(t_flags *flags, char **mass, unsigned int i, int x)
+int						ft_p_flags(t_flags *flags,
+char **mass, unsigned long long int i)
 {
 	int	len;
 
@@ -62,17 +63,19 @@ int				ft_x_flags(t_flags *flags, char **mass, unsigned int i, int x)
 		(*flags).precision = 0;
 		(*flags).precisionset = 0;
 	}
-	*mass = ft_xtoa(i, x);
+	*mass = ft_ptoa(i);
 	len = ft_strlen(*mass);
 	return (len);
 }
 
-int				ft_print_x(va_list *args, t_flags flags, char **line, int x)
+unsigned long long int	ft_print_p(va_list *args, t_flags flags, char **line)
 {
-	unsigned int	counter;
-	unsigned int	i;
+	unsigned long long int	counter;
+	char					*mass;
+	unsigned long long int	i;
 
-	i = va_arg(*args, unsigned int);
-	counter = ft_handle_x_flags(flags, &(*line), i, x);
+	i = va_arg(*args, unsigned long long int);
+	counter = ft_handle_p_flags(flags, &(*line), &mass, i);
+	free(mass);
 	return (counter);
 }

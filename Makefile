@@ -21,6 +21,7 @@ SRCS =		ft_char_treatment.c	\
 			ft_flags_treatment.c	\
 			ft_helpers.c	\
 			ft_int_treatment.c	\
+			ft_p_treatment.c \
 			ft_printf.c	\
 			ft_putchar.c	\
 			ft_str_helpers.c	\

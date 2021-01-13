@@ -6,7 +6,7 @@
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 18:03:37 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/13 16:13:03 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/13 17:21:27 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,30 @@ int	ft_handle_x_flags(t_flags flags, char **line, unsigned int i, int x)
 	if ((flags.minus && counter + len < flags.width) || !i)
 		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
 	free(mass);
+	return (counter + len);
+}
+
+int	ft_handle_p_flags(t_flags flags, char **line,
+char **mass, unsigned long long int i)
+{
+	int	counter;
+	int	len;
+
+	len = ft_p_flags(&flags, &(*mass), i);
+	if ((!(counter = 0) && (!flags.minus && !flags.zero)) || (flags.zero
+			&& flags.precisionset && flags.precision < flags.width))
+		counter += ft_print_width(flags.width, ft_max(len,
+			flags.precision), 0, *(&line));
+	if (flags.zero && flags.precision < len)
+		counter += ft_print_width(flags.width,
+			ft_max(len + counter, flags.precision), 1, *(&line));
+	if (flags.precision > len)
+		counter += ft_print_width(flags.precision, len, 1, *(&line));
+	if ((flags.precisionset && flags.precision) || !flags.precisionset)
+		ft_strjoin(&(*line), *mass);
+	else
+		len = 0;
+	if ((flags.minus && counter + len < flags.width) || !i)
+		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
 	return (counter + len);
 }

@@ -713,9 +713,10 @@ int	int_main(void)
 
 	printf("\n\n===c_nullterm_5wlj %%-5\", '\\0'===\n");
 	fflush(stdout);
-	out1 = ft_printf("ft_printf: %x", 4294967295u);
+	int a = 4;
+	out1 = ft_printf("ft_printf: %p", &a);
 	printf("\t%i\n", out1);
-	out2 = printf("originalf: %x", 4294967295u);
+	out2 = printf("originalf: %p", &a);
 	printf("\t%i", out2);
 	if (out1 != out2 && ++count)
 		printf("\n\033[1;31mYou suck!\033[0m");

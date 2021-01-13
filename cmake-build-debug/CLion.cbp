@@ -93,6 +93,9 @@
 		<Unit filename="/Users/kgale/Desktop/ft_printf/ft_int_treatment.c">
 			<Option target="printf"/>
 		</Unit>
+		<Unit filename="/Users/kgale/Desktop/ft_printf/ft_p_treatment.c">
+			<Option target="printf"/>
+		</Unit>
 		<Unit filename="/Users/kgale/Desktop/ft_printf/ft_printf.c">
 			<Option target="printf"/>
 		</Unit>

@@ -278,6 +278,33 @@ ft_int_treatment.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_int_treatment.c.s
 .PHONY : ft_int_treatment.c.s
 
+ft_p_treatment.o: ft_p_treatment.c.o
+
+.PHONY : ft_p_treatment.o
+
+# target to build an object file
+ft_p_treatment.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_p_treatment.c.o
+.PHONY : ft_p_treatment.c.o
+
+ft_p_treatment.i: ft_p_treatment.c.i
+
+.PHONY : ft_p_treatment.i
+
+# target to preprocess a source file
+ft_p_treatment.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_p_treatment.c.i
+.PHONY : ft_p_treatment.c.i
+
+ft_p_treatment.s: ft_p_treatment.c.s
+
+.PHONY : ft_p_treatment.s
+
+# target to generate assembly for a file
+ft_p_treatment.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_p_treatment.c.s
+.PHONY : ft_p_treatment.c.s
+
 ft_printf.o: ft_printf.c.o
 
 .PHONY : ft_printf.o
@@ -491,6 +518,9 @@ help:
 	@echo "... ft_int_treatment.o"
 	@echo "... ft_int_treatment.i"
 	@echo "... ft_int_treatment.s"
+	@echo "... ft_p_treatment.o"
+	@echo "... ft_p_treatment.i"
+	@echo "... ft_p_treatment.s"
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"
