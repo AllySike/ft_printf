@@ -53,7 +53,7 @@ int	ft_handle_text(char **line, va_list *args, t_flags flags, char **out)
 		return (ft_print_string(&(*args), flags, &(*out)));
 	}
 	else if (**line == '%')
-		return (2);
+		return (ft_put_percent(&(*line), flags, &(*out)));
 	else if (**line == 'p')
 		return (3);
 	else

@@ -61,5 +61,7 @@ int				ft_int_flags(t_flags *flags, char **mass, int i);
 char			*ft_itoa(int n);
 int				ft_handle_int_flags(t_flags flags,
 		char **line, int i, char **mass);
+void			ft_strjoin_n(char **s1, char const *s2, t_flags flags);
+int 			ft_put_percent(char **line, t_flags flags, char **out);
 
 #endif

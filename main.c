@@ -508,7 +508,7 @@ int	int_main(void)
         printf("\n\033[1;31mYou suck!\033[0m");
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
-*/
+
     printf("\n\n===d_width_zero_fits %%3d, 0===\n");
     fflush(stdout);
     out1 = ft_printf("%3d", 0);
@@ -519,7 +519,7 @@ int	int_main(void)
         printf("\n\033[1;31mYou suck!\033[0m");
     else
         printf("\n\033[32;1mThis case is ok\033[0m\n");
-/*
+
     printf("\n\n===d_zp_pos_fits %%05d, 43===\n");
     fflush(stdout);
     out1 = ft_printf("%05d", 43);
@@ -675,23 +675,57 @@ int	int_main(void)
 		printf("\n\033[1;31mYou suck!\033[0m");
 	else
 		printf("\n\033[32;1mThis case is ok\033[0m\n");
-*/
+
 	printf("\n\n===c_nullterm_5wlj %%-5c, ''===\n");
 	fflush(stdout);
 	char c = 0;
-	out1 = ft_printf("|%-5c|", NULL);
+	out1 = ft_printf("|%-*c|", 0,  '\x00');
 	printf("\t%i\n", out1);
-	out2 = printf("|%-5c|", NULL);
+	out2 = printf("|%-*c|", 0, '\x00');
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+*/
+	printf("\n\n===c_nullterm_basic %%c\", '\\0'===\n");
+	fflush(stdout);
+	out1 = ft_printf("ft_printf: |%%|", -0);
+	printf("\t%i\n", out1);
+	out2 = printf("originalf: |%%|", -0);
 	printf("\t%i", out2);
 	if (out1 != out2 && ++count)
 		printf("\n\033[1;31mYou suck!\033[0m");
 	else
 		printf("\n\033[32;1mThis case is ok\033[0m\n");
 
-	printf("\n|\x00|");
+	printf("\n\n===c_nullterm_5w %%5c\", '\\0'===\n");
+	fflush(stdout);
+	out1 = ft_printf("ft_printf: |%05%|", '\0');
+	printf("\t%i\n", out1);
+	out2 = printf("originalf: |%05%|", '\0');
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
 
+	printf("\n\n===c_nullterm_5wlj %%-5c\", '\\0'===\n");
+	fflush(stdout);
+	out1 = ft_printf("ft_printf: |%-6.5%|", '\0');
+	printf("\t%i\n", out1);
+	out2 = printf("originalf: |%-6.5%|", '\0');
+	printf("\t%i", out2);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
+
+	char c = '\0';
+	if (count > 1)
+		c = 's';
     if (count > 0)
-        printf("\n\033[1;31mYou sucked %d times\033[0m\n", count);
+        printf("\n\033[1;31mYou sucked %d time%c\033[0m\n", count, c);
     else
         printf("\n\033[32;1mYou suck anyway, btw no errors in your %%d & %%i output with flags\033[0m\n");
 	//	printf("\n%is %is%ir", "f", 1, 1, 3.0, 4, 5 );
