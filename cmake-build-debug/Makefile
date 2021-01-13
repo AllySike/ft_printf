@@ -386,6 +386,60 @@ ft_string_treatment.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_string_treatment.c.s
 .PHONY : ft_string_treatment.c.s
 
+ft_u_treatment.o: ft_u_treatment.c.o
+
+.PHONY : ft_u_treatment.o
+
+# target to build an object file
+ft_u_treatment.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_u_treatment.c.o
+.PHONY : ft_u_treatment.c.o
+
+ft_u_treatment.i: ft_u_treatment.c.i
+
+.PHONY : ft_u_treatment.i
+
+# target to preprocess a source file
+ft_u_treatment.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_u_treatment.c.i
+.PHONY : ft_u_treatment.c.i
+
+ft_u_treatment.s: ft_u_treatment.c.s
+
+.PHONY : ft_u_treatment.s
+
+# target to generate assembly for a file
+ft_u_treatment.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_u_treatment.c.s
+.PHONY : ft_u_treatment.c.s
+
+ft_x_treatment.o: ft_x_treatment.c.o
+
+.PHONY : ft_x_treatment.o
+
+# target to build an object file
+ft_x_treatment.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_x_treatment.c.o
+.PHONY : ft_x_treatment.c.o
+
+ft_x_treatment.i: ft_x_treatment.c.i
+
+.PHONY : ft_x_treatment.i
+
+# target to preprocess a source file
+ft_x_treatment.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_x_treatment.c.i
+.PHONY : ft_x_treatment.c.i
+
+ft_x_treatment.s: ft_x_treatment.c.s
+
+.PHONY : ft_x_treatment.s
+
+# target to generate assembly for a file
+ft_x_treatment.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/printf.dir/build.make CMakeFiles/printf.dir/ft_x_treatment.c.s
+.PHONY : ft_x_treatment.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -449,6 +503,12 @@ help:
 	@echo "... ft_string_treatment.o"
 	@echo "... ft_string_treatment.i"
 	@echo "... ft_string_treatment.s"
+	@echo "... ft_u_treatment.o"
+	@echo "... ft_u_treatment.i"
+	@echo "... ft_u_treatment.s"
+	@echo "... ft_x_treatment.o"
+	@echo "... ft_x_treatment.i"
+	@echo "... ft_x_treatment.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

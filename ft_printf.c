@@ -68,11 +68,17 @@ int	ft_handle_numbers(char **line, va_list *args, t_flags flags, char **out)
 		return (ft_print_int(&(*args), flags, &(*out)));
 	}
 	else if (**line == 'u')
-		return (2);
-	else if (**line == 'x')
-		return (3);
-	else if (**line == 'X')
-		return (4);
+	{
+		(*line)++;
+		return (ft_print_u(&(*args), flags, &(*out)));
+	}
+	else if (**line == 'x' || **line == 'X')
+	{
+		(*line)++;
+		if (**line == 'x')
+			return (ft_print_x(&(*args), flags, &(*out), 0));
+		return (ft_print_x(&(*args), flags, &(*out), 1));
+	}
 	else
 		return (0);
 }

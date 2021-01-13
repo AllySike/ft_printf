@@ -24,7 +24,9 @@ SRCS =		ft_char_treatment.c	\
 			ft_printf.c	\
 			ft_putchar.c	\
 			ft_str_helpers.c	\
-			ft_string_treatment.c
+			ft_string_treatment.c \
+			ft_u_treatment.c \
+			ft_x_treatment.c
 
 OBJS =		$(SRCS:.c=.o)
 

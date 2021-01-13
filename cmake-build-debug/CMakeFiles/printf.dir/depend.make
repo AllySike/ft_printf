@@ -28,5 +28,11 @@ CMakeFiles/printf.dir/ft_str_helpers.c.o: ../ft_str_helpers.c
 CMakeFiles/printf.dir/ft_string_treatment.c.o: ../ft_printf.h
 CMakeFiles/printf.dir/ft_string_treatment.c.o: ../ft_string_treatment.c
 
+CMakeFiles/printf.dir/ft_u_treatment.c.o: ../ft_printf.h
+CMakeFiles/printf.dir/ft_u_treatment.c.o: ../ft_u_treatment.c
+
+CMakeFiles/printf.dir/ft_x_treatment.c.o: ../ft_printf.h
+CMakeFiles/printf.dir/ft_x_treatment.c.o: ../ft_x_treatment.c
+
 CMakeFiles/printf.dir/main.c.o: ../main.c
 

@@ -687,12 +687,12 @@ int	int_main(void)
 		printf("\n\033[1;31mYou suck!\033[0m");
 	else
 		printf("\n\033[32;1mThis case is ok\033[0m\n");
-*/
+
 	printf("\n\n===c_nullterm_basic %%c\", '\\0'===\n");
 	fflush(stdout);
-	out1 = ft_printf("ft_printf: |%%|", -0);
+	out1 = ft_printf("ft_printf: |%c|", -0);
 	printf("\t%i\n", out1);
-	out2 = printf("originalf: |%%|", -0);
+	out2 = printf("originalf: |%c|", -0);
 	printf("\t%i", out2);
 	if (out1 != out2 && ++count)
 		printf("\n\033[1;31mYou suck!\033[0m");
@@ -701,20 +701,21 @@ int	int_main(void)
 
 	printf("\n\n===c_nullterm_5w %%5c\", '\\0'===\n");
 	fflush(stdout);
-	out1 = ft_printf("ft_printf: |%05%|", '\0');
+	out1 = ft_printf("ft_printf: |%c|", 0);
 	printf("\t%i\n", out1);
-	out2 = printf("originalf: |%05%|", '\0');
+	out2 = printf("originalf: |%c|", 0);
 	printf("\t%i", out2);
 	if (out1 != out2 && ++count)
 		printf("\n\033[1;31mYou suck!\033[0m");
 	else
 		printf("\n\033[32;1mThis case is ok\033[0m\n");
+*/
 
-	printf("\n\n===c_nullterm_5wlj %%-5c\", '\\0'===\n");
+	printf("\n\n===c_nullterm_5wlj %%-5\", '\\0'===\n");
 	fflush(stdout);
-	out1 = ft_printf("ft_printf: |%-6.5%|", '\0');
+	out1 = ft_printf("ft_printf: %x", 4294967295u);
 	printf("\t%i\n", out1);
-	out2 = printf("originalf: |%-6.5%|", '\0');
+	out2 = printf("originalf: %x", 4294967295u);
 	printf("\t%i", out2);
 	if (out1 != out2 && ++count)
 		printf("\n\033[1;31mYou suck!\033[0m");

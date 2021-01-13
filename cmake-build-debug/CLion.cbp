@@ -108,6 +108,12 @@
 		<Unit filename="/Users/kgale/Desktop/ft_printf/ft_string_treatment.c">
 			<Option target="printf"/>
 		</Unit>
+		<Unit filename="/Users/kgale/Desktop/ft_printf/ft_u_treatment.c">
+			<Option target="printf"/>
+		</Unit>
+		<Unit filename="/Users/kgale/Desktop/ft_printf/ft_x_treatment.c">
+			<Option target="printf"/>
+		</Unit>
 		<Unit filename="/Users/kgale/Desktop/ft_printf/main.c">
 			<Option target="printf"/>
 		</Unit>

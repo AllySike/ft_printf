@@ -6,7 +6,7 @@
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 19:13:42 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/12 18:15:45 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/13 16:10:29 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,15 @@ char			*ft_itoa(int n);
 int				ft_handle_int_flags(t_flags flags,
 		char **line, int i, char **mass);
 void			ft_strjoin_n(char **s1, char const *s2, t_flags flags);
-int 			ft_put_percent(char **line, t_flags flags, char **out);
+int				ft_put_percent(char **line, t_flags flags, char **out);
+unsigned int	ft_print_u(va_list *args, t_flags flags, char **line);
+int				ft_u_flags(t_flags *flags, char **mass, unsigned int i);
+char			*ft_utoa(unsigned int n);
+int				ft_handle_u_flags(t_flags flags,
+		char **line, char **mass, unsigned int i);
+int				ft_handle_x_flags(t_flags flags,
+		char **line, unsigned int i, int x);
+int				ft_x_flags(t_flags *flags, char **mass, unsigned int i, int x);
+unsigned int	ft_print_x(va_list *args, t_flags flags, char **line, int x);
 
 #endif

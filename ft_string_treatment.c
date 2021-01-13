@@ -6,7 +6,7 @@
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 19:13:38 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/12 18:03:25 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/13 16:13:33 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_putstr(char *s)
 		}
 }
 
-int 	ft_put_percent(char **line, t_flags flags, char **out)
+int		ft_put_percent(char **line, t_flags flags, char **out)
 {
 	(*line)++;
 	if (flags.width > 1 && !flags.minus)

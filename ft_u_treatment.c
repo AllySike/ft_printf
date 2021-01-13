@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_treatment.c                                 :+:      :+:    :+:   */
+/*   ft_u_treatment.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 02:17:36 by marvin            #+#    #+#             */
-/*   Updated: 2021/01/12 18:07:40 by kgale            ###   ########.fr       */
+/*   Created: 2021/01/13 16:11:01 by kgale             #+#    #+#             */
+/*   Updated: 2021/01/13 16:11:58 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_lengths(int n, size_t *len, int *width)
+static void		ft_u_lengths(unsigned int n, size_t *len, unsigned int *width)
 {
 	if (n < 0)
 		n *= -1;
@@ -25,14 +25,14 @@ static void		ft_lengths(int n, size_t *len, int *width)
 	}
 }
 
-char			*ft_itoa(int n)
+char			*ft_utoa(unsigned int n)
 {
-	size_t		len;
-	int			width;
-	size_t		cur;
-	char		*str;
+	size_t			len;
+	unsigned int	width;
+	size_t			cur;
+	char			*str;
 
-	ft_lengths(n, &len, &width);
+	ft_u_lengths(n, &len, &width);
 	str = (char *)malloc(sizeof(*str) * (len + 1));
 	if (str == NULL)
 		return (NULL);
@@ -48,7 +48,7 @@ char			*ft_itoa(int n)
 	return (str);
 }
 
-int				ft_int_flags(t_flags *flags, char **mass, int i)
+int				ft_u_flags(t_flags *flags, char **mass, unsigned int i)
 {
 	int	len;
 
@@ -57,19 +57,19 @@ int				ft_int_flags(t_flags *flags, char **mass, int i)
 		(*flags).precision = 0;
 		(*flags).precisionset = 0;
 	}
-	*mass = ft_itoa(i);
+	*mass = ft_utoa(i);
 	len = ft_strlen(*mass);
 	return (len);
 }
 
-int				ft_print_int(va_list *args, t_flags flags, char **line)
+unsigned int	ft_print_u(va_list *args, t_flags flags, char **line)
 {
-	int		counter;
-	char	*mass;
-	int		i;
+	unsigned int	counter;
+	char			*mass;
+	unsigned int	i;
 
-	i = va_arg(*args, int);
-	counter = ft_handle_int_flags(flags, &(*line), i, &mass);
+	i = va_arg(*args, unsigned int);
+	counter = ft_handle_u_flags(flags, &(*line), &mass, i);
 	free(mass);
 	return (counter);
 }

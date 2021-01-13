@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/kgale/Desktop/ft_printf/ft_putchar.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_putchar.c.o"
   "/Users/kgale/Desktop/ft_printf/ft_str_helpers.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_str_helpers.c.o"
   "/Users/kgale/Desktop/ft_printf/ft_string_treatment.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_string_treatment.c.o"
+  "/Users/kgale/Desktop/ft_printf/ft_u_treatment.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_u_treatment.c.o"
+  "/Users/kgale/Desktop/ft_printf/ft_x_treatment.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/ft_x_treatment.c.o"
   "/Users/kgale/Desktop/ft_printf/main.c" "/Users/kgale/Desktop/ft_printf/cmake-build-debug/CMakeFiles/printf.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
