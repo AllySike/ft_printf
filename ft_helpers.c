@@ -19,7 +19,7 @@ int	ft_max(int a, int b)
 	return (b);
 }
 
-int	ft_handle_int_flags(t_flags flags, char **line, int i, char **mass)
+int	ft_handle_int_flags(t_flags flags, int i, char **mass)
 {
 	int	counter;
 	int	minus;
@@ -31,24 +31,24 @@ int	ft_handle_int_flags(t_flags flags, char **line, int i, char **mass)
 	if ((!(counter = 0) && (!flags.minus && !flags.zero)) || (flags.zero
 			&& flags.precisionset && flags.precision < flags.width))
 		counter += ft_print_width(flags.width, ft_max(len + minus,
-			flags.precision + minus), 0, *(&line));
+			flags.precision + minus), 0);
 	if (i < 0 && ++counter)
-		ft_strjoin(&(*line), "-");
+		ft_putchar('-');
 	if (flags.zero && flags.precision < len)
 		counter += ft_print_width(flags.width,
-		ft_max(len + counter, flags.precision), 1, *(&line));
+		ft_max(len + counter, flags.precision), 1);
 	if (flags.precision > len)
-		counter += ft_print_width(flags.precision, len, 1, *(&line));
+		counter += ft_print_width(flags.precision, len, 1);
 	if ((flags.precisionset && flags.precision) || !flags.precisionset)
-		ft_strjoin(&(*line), *mass);
+		ft_putstr(*mass);
 	else
 		len = 0;
 	if ((flags.minus && counter + len < flags.width) || !i)
-		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
+		counter += ft_print_width(flags.width, len + counter, 0);
 	return (counter + len);
 }
 
-int	ft_handle_u_flags(t_flags flags, char **line, char **mass, unsigned int i)
+int	ft_handle_u_flags(t_flags flags, char **mass, unsigned int i)
 {
 	int	counter;
 	int	len;
@@ -57,22 +57,22 @@ int	ft_handle_u_flags(t_flags flags, char **line, char **mass, unsigned int i)
 	if ((!(counter = 0) && (!flags.minus && !flags.zero)) || (flags.zero
 			&& flags.precisionset && flags.precision < flags.width))
 		counter += ft_print_width(flags.width, ft_max(len,
-			flags.precision), 0, *(&line));
+			flags.precision), 0);
 	if (flags.zero && flags.precision < len)
 		counter += ft_print_width(flags.width,
-			ft_max(len + counter, flags.precision), 1, *(&line));
+			ft_max(len + counter, flags.precision), 1);
 	if (flags.precision > len)
-		counter += ft_print_width(flags.precision, len, 1, *(&line));
+		counter += ft_print_width(flags.precision, len, 1);
 	if ((flags.precisionset && flags.precision) || !flags.precisionset)
-		ft_strjoin(&(*line), *mass);
+		ft_putstr(*mass);
 	else
 		len = 0;
 	if ((flags.minus && counter + len < flags.width) || !i)
-		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
+		counter += ft_print_width(flags.width, len + counter, 0);
 	return (counter + len);
 }
 
-int	ft_handle_x_flags(t_flags flags, char **line, unsigned int i, int x)
+int	ft_handle_x_flags(t_flags flags, unsigned int i, int x)
 {
 	int		counter;
 	int		len;
@@ -82,43 +82,45 @@ int	ft_handle_x_flags(t_flags flags, char **line, unsigned int i, int x)
 	if ((!(counter = 0) && (!flags.minus && !flags.zero)) || (flags.zero
 			&& flags.precisionset && flags.precision < flags.width))
 		counter += ft_print_width(flags.width, ft_max(len,
-			flags.precision), 0, *(&line));
+			flags.precision), 0);
 	if (flags.zero && flags.precision < len)
 		counter += ft_print_width(flags.width,
-			ft_max(len + counter, flags.precision), 1, *(&line));
+			ft_max(len + counter, flags.precision), 1);
 	if (flags.precision > len)
-		counter += ft_print_width(flags.precision, len, 1, *(&line));
+		counter += ft_print_width(flags.precision, len, 1);
 	if ((flags.precisionset && flags.precision) || !flags.precisionset)
-		ft_strjoin(&(*line), mass);
+		ft_putstr(mass);
 	else
 		len = 0;
 	if ((flags.minus && counter + len < flags.width) || !i)
-		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
+		counter += ft_print_width(flags.width, len + counter, 0);
 	free(mass);
 	return (counter + len);
 }
 
-int	ft_handle_p_flags(t_flags flags, char **line,
+int	ft_handle_p_flags(t_flags flags,
 char **mass, unsigned long long int i)
 {
 	int	counter;
 	int	len;
 
 	len = ft_p_flags(&flags, &(*mass), i);
-	if ((!(counter = 0) && (!flags.minus && !flags.zero)) || (flags.zero
-			&& flags.precisionset && flags.precision < flags.width))
+	if ((!(counter = 0) && flags.minus && (!i || ((flags.precisionset
+	&& flags.precision)) || !flags.precisionset) && (!len || (counter = len))))
+		ft_putstr(*mass);
+	if ((!flags.minus && !flags.zero) || (flags.zero && flags.precisionset && flags.precision < flags.width))
 		counter += ft_print_width(flags.width, ft_max(len,
-			flags.precision), 0, *(&line));
+			flags.precision), 0);
 	if (flags.zero && flags.precision < len)
 		counter += ft_print_width(flags.width,
-			ft_max(len + counter, flags.precision), 1, *(&line));
+			ft_max(len + counter, flags.precision), 1);
 	if (flags.precision > len)
-		counter += ft_print_width(flags.precision, len, 1, *(&line));
-	if ((flags.precisionset && flags.precision) || !flags.precisionset)
-		ft_strjoin(&(*line), *mass);
+		counter += ft_print_width(flags.precision, len, 1);
+	if (!flags.minus && (((flags.precisionset && flags.precision) || !i) || !flags.precisionset))
+		ft_putstr(*mass);
 	else
 		len = 0;
 	if ((flags.minus && counter + len < flags.width) || !i)
-		counter += ft_print_width(flags.width, len + counter, 0, *(&line));
+		counter += ft_print_width(flags.width, len + counter, 0);
 	return (counter + len);
 }

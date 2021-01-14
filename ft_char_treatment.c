@@ -12,46 +12,40 @@
 
 #include "ft_printf.h"
 
-int	ft_print_chars(char **line, char **out)
+int	ft_print_chars(char **line)
 {
 	int		percent;
 	char	mass[1];
 
 	percent = 0;
 	mass[0] = **line;
-	ft_strjoin(&(*out), mass);
+	ft_putstr(mass);
 	(*line)++;
 	return (1);
 }
 
-int	ft_print_char(va_list *args, t_flags flags, char **line)
+int	ft_print_char(va_list *args, t_flags flags)
 {
 	int		counter;
-	char	mass[2];
+	char	mass;
 
-	mass[0] = (char)va_arg(*args, int);
-	mass[1] = '\0';
-	if (!mass[0])
-		mass[0] = (char)'\x00';
+	mass = (char)va_arg(*args, int);
 	if (flags.minus)
-		ft_strjoin(&(*line), mass);
-	counter = ft_print_width(flags.width, 1, flags.zero, &(*line));
+		ft_putchar(mass);
+	counter = ft_print_width(flags.width, 1, flags.zero);
 	if (!flags.minus)
-		ft_strjoin(&(*line), mass);
+		ft_putchar(mass);
 	return (counter + 1);
 }
 
-int	ft_print_defined_char(char c, t_flags flags, char **line)
+int	ft_print_defined_char(char c, t_flags flags)
 {
 	int		counter;
-	char	mass[2];
 
-	mass[0] = c;
-	mass[1] = '\0';
 	if (flags.minus)
-		ft_strjoin(&(*line), mass);
-	counter = ft_print_width(flags.width, 1, flags.zero, &(*line));
+		ft_putchar(c);
+	counter = ft_print_width(flags.width, 1, flags.zero);
 	if (!flags.minus)
-		ft_strjoin(&(*line), mass);
+		ft_putchar(c);
 	return (counter + 1);
 }

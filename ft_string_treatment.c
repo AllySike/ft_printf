@@ -25,14 +25,14 @@ void	ft_putstr(char *s)
 		}
 }
 
-int		ft_put_percent(char **line, t_flags flags, char **out)
+int		ft_put_percent(char **line, t_flags flags)
 {
 	(*line)++;
 	if (flags.width > 1 && !flags.minus)
-		ft_print_width(flags.width, 1, flags.zero, &(*out));
-	ft_strjoin(&(*out), "%");
+		ft_print_width(flags.width, 1, flags.zero);
+	ft_putchar('%');
 	if (flags.width > 1 && flags.minus)
-		ft_print_width(flags.width, 1, flags.zero, &(*out));
+		ft_print_width(flags.width, 1, flags.zero);
 	if (!flags.width)
 		flags.width = 1;
 	return (flags.width);
@@ -59,7 +59,7 @@ int		ft_str_flags(t_flags *flags, char **mass)
 	return (len);
 }
 
-int		ft_print_string(va_list *args, t_flags flags, char **line)
+int		ft_print_string(va_list *args, t_flags flags)
 {
 	int		counter;
 	char	*mass;
@@ -77,12 +77,12 @@ int		ft_print_string(va_list *args, t_flags flags, char **line)
 	if (flags.width > len && len < flags.precision)
 		width += flags.precision - len;
 	if (!flags.minus)
-		counter += ft_print_width(width, 0, flags.zero, &(*line));
+		counter += ft_print_width(width, 0, flags.zero);
 	if (flags.minus)
-		ft_strjoin_n(&(*line), mass, flags);
+		ft_strjoin_n(mass, flags);
 	if (flags.minus)
-		counter += ft_print_width(width, 0, flags.zero, &(*line));
+		counter += ft_print_width(width, 0, flags.zero);
 	if (!flags.minus)
-		ft_strjoin_n(&(*line), mass, flags);
+		ft_strjoin_n(mass, flags);
 	return (counter + len);
 }

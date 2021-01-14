@@ -14,13 +14,11 @@
 
 int	ft_putchar(char c)
 {
-	if ((write(1, &c, 1)) < 0)
-		return (-1);
-	else
-		return (1);
+	write(1, &c, 1);
+	return (1);
 }
 
-int	ft_print_width(int width, int len, int zero, char **line)
+int	ft_print_width(int width, int len, int zero)
 {
 	int	count;
 
@@ -28,9 +26,9 @@ int	ft_print_width(int width, int len, int zero, char **line)
 	while (count + len < width)
 	{
 		if (zero)
-			ft_strjoin(&(*line), "0");
+			ft_putchar('0');
 		else
-			ft_strjoin(&(*line), " ");
+			ft_putchar(' ');
 		count++;
 	}
 	return (count);

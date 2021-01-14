@@ -55,7 +55,7 @@ char			*ft_xtoa(unsigned int n, int x)
 
 int				ft_x_flags(t_flags *flags, char **mass, unsigned int i, int x)
 {
-	int	len;
+	int		len;
 
 	if ((*flags).precision < 0)
 	{
@@ -67,12 +67,12 @@ int				ft_x_flags(t_flags *flags, char **mass, unsigned int i, int x)
 	return (len);
 }
 
-int				ft_print_x(va_list *args, t_flags flags, char **line, int x)
+int				ft_print_x(va_list *args, t_flags flags, int x)
 {
 	unsigned int	counter;
 	unsigned int	i;
 
 	i = va_arg(*args, unsigned int);
-	counter = ft_handle_x_flags(flags, &(*line), i, x);
+	counter = ft_handle_x_flags(flags, i, x);
 	return (counter);
 }

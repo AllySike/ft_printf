@@ -62,14 +62,14 @@ int				ft_u_flags(t_flags *flags, char **mass, unsigned int i)
 	return (len);
 }
 
-unsigned int	ft_print_u(va_list *args, t_flags flags, char **line)
+unsigned int	ft_print_u(va_list *args, t_flags flags)
 {
 	unsigned int	counter;
 	char			*mass;
 	unsigned int	i;
 
 	i = va_arg(*args, unsigned int);
-	counter = ft_handle_u_flags(flags, &(*line), &mass, i);
+	counter = ft_handle_u_flags(flags, &mass, i);
 	free(mass);
 	return (counter);
 }

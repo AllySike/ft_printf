@@ -16,14 +16,17 @@ int	int_main(void)
 	//out1 = ft_printf("ft_printf: %i4dlol %i-*.*i %i200s %i*k %i.2i end", 67890, 4, 22, 1, "50", 15);
 	//	ft_printf("\n");
 	//	int out2 = printf("originalf: %i4dlol %i-*.*i %i200s %i*k %i.2i end", 67890, 4, 22, 1, "50", 15);
-/*
-    int out11 = ft_printf("\nft_printf: |%i0*k|");
-    int out12 = printf("\noriginalf: |%i0*k|");
-    out1 = %i\tout2 = %i", out11, out12);
-*/
-    int out1, out2, count;
 
-    count = 0;
+
+    int out1, out2, count;
+	count = 0;
+
+    out1 = ft_printf("\n|%-5c|", 0);
+    out2 = printf("\n|%-5c|", 0);
+	if (out1 != out2 && ++count)
+		printf("\n\033[1;31mYou suck!\033[0m");
+	else
+		printf("\n\033[32;1mThis case is ok\033[0m\n");
 //    printf("\033[0;31m"); //Set the text to the color red.
 //    printf("Hello\n"); //Display Hello in red.
 //    printf("\033[0m"); //Resets the text to default color.
@@ -340,7 +343,7 @@ int	int_main(void)
         printf("\n\033[32;1mThis case is ok\033[0m\n");
 
 
-    printf("\n===|%%3i| |%%.3d| |%%3.3d|, 0, 0, 0===");
+    printf("\n===|%%3i| |%%.3d| |%%3.3d|, 1, -1, 1===");
     fflush(stdout);
     out1 = ft_printf("\nft_printf: |%-3i|  |%.-3d|  |%-3.-3d| %c end", 1, -1, 1, 'e');
     printf("\t%i", out1);
@@ -354,9 +357,9 @@ int	int_main(void)
 
     printf("\n\n===|%%.\\n5d| 10===");
     fflush(stdout);
-    out1 = ft_printf("\nft_printf: |%.\n5d|", 10);
+    out1 = ft_printf("\nft_printf: |%0\t5d|", 10);
     printf("\t%i", out1);
-    out2 = printf("\noriginalf: |%.\n5d|", 10);
+    out2 = printf("\noriginalf: |%0\t5d|", 10);
     printf("\t%i", out2);
     if (out1 != out2 && ++count)
         printf("\n\033[1;31mYou suck!\033[0m");
@@ -678,7 +681,6 @@ int	int_main(void)
 
 	printf("\n\n===c_nullterm_5wlj %%-5c, ''===\n");
 	fflush(stdout);
-	char c = 0;
 	out1 = ft_printf("|%-*c|", 0,  '\x00');
 	printf("\t%i\n", out1);
 	out2 = printf("|%-*c|", 0, '\x00');
@@ -709,7 +711,6 @@ int	int_main(void)
 		printf("\n\033[1;31mYou suck!\033[0m");
 	else
 		printf("\n\033[32;1mThis case is ok\033[0m\n");
-*/
 
 	printf("\n\n===c_nullterm_5wlj %%-5\", '\\0'===\n");
 	fflush(stdout);
@@ -722,7 +723,7 @@ int	int_main(void)
 		printf("\n\033[1;31mYou suck!\033[0m");
 	else
 		printf("\n\033[32;1mThis case is ok\033[0m\n");
-
+*/
 	char c = '\0';
 	if (count > 1)
 		c = 's';

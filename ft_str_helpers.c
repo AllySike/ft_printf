@@ -38,53 +38,40 @@ int		ft_strlen(const char *str)
 		count++;
 	return (count);
 }
+//
+//void	ft_strjoin(char **s1, char const *s2)
+//{
+//	int		len1;
+//	int		len2;
+//	int		index;
+//	char	*tmp;
+//
+//	len1 = ft_strlen(*s1);
+//	len2 = ft_strlen(s2);
+//	index = 0;
+//	tmp = *s1;
+//	*s1 = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+//	if (*s1)
+//	{
+//		while (index++ < len1)
+//			(*s1)[index - 1] = tmp[index - 1];
+//		index = 0;
+//		while (index++ < len2)
+//			(*s1)[index + len1 - 1] = s2[index - 1];
+//		(*s1)[len1 + len2] = '\0';
+//		free(tmp);
+//	}
+//}
 
-void	ft_strjoin(char **s1, char const *s2)
+void	ft_strjoin_n(char const *s2, t_flags flags)
 {
-	int		len1;
 	int		len2;
 	int		index;
-	char	*tmp;
 
-	len1 = ft_strlen(*s1);
-	len2 = ft_strlen(s2);
-	index = 0;
-	tmp = *s1;
-	*s1 = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (*s1)
-	{
-		while (index++ < len1)
-			(*s1)[index - 1] = tmp[index - 1];
-		index = 0;
-		while (index++ < len2)
-			(*s1)[index + len1 - 1] = s2[index - 1];
-		(*s1)[len1 + len2] = '\0';
-		free(tmp);
-	}
-}
-
-void	ft_strjoin_n(char **s1, char const *s2, t_flags flags)
-{
-	int		len1;
-	int		len2;
-	int		index;
-	char	*tmp;
-
-	len1 = ft_strlen(*s1);
 	len2 = ft_strlen(s2);
 	if (flags.precisionset && flags.precision < len2)
 		len2 = flags.precision;
 	index = 0;
-	tmp = *s1;
-	*s1 = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (*s1)
-	{
-		while (index++ < len1)
-			(*s1)[index - 1] = tmp[index - 1];
-		index = 0;
-		while (index < len2 && s2[index++])
-			(*s1)[index + len1 - 1] = s2[index - 1];
-		(*s1)[index + len1] = '\0';
-		free(tmp);
-	}
+	while (index < len2 && s2[index++])
+		ft_putchar(s2[index - 1]);
 }
