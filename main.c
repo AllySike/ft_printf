@@ -21,8 +21,12 @@ int	int_main(void)
     int out1, out2, count;
 	count = 0;
 
-    out1 = ft_printf("\n|%-5c|", 0);
-    out2 = printf("\n|%-5c|", 0);
+	out1 = ft_printf("%0*.*i\n", 2, 0, 8);
+	printf ("     %d\n", out1);
+	printf("\n");
+	out2 = printf("%0*.*i\n", 2, 0, 8);
+	printf ("     %d",    out2);
+    printf("\n%d\t%d", out1, out2);
 	if (out1 != out2 && ++count)
 		printf("\n\033[1;31mYou suck!\033[0m");
 	else

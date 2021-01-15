@@ -56,6 +56,11 @@ int		ft_str_flags(t_flags *flags, char **mass)
 		(*flags).precision = 0;
 		(*flags).precisionset = 0;
 	}
+	if ((*flags).width < (*flags).precision && (*flags).precisionset
+	&& (*flags).width && len > (*flags).precision)
+		len = (*flags).width;
+	if ((*flags).precisionset && len > (*flags).precision)
+		return ((*flags).precision);
 	return (len);
 }
 
@@ -70,18 +75,9 @@ int		ft_print_string(va_list *args, t_flags flags)
 	len = ft_str_flags(&flags, &mass);
 	width = 0;
 	counter = 0;
-	if (flags.width && flags.precisionset && flags.precision < flags.width)
-		width = flags.width - flags.precision;
-	else if (flags.width && len < flags.width && !flags.precisionset)
-		width = flags.width - len;
-	if (flags.width > len && len < flags.precision)
-		width += flags.precision - len;
-	if (!flags.minus)
-		counter += ft_print_width(width, 0, flags.zero);
 	if (flags.minus)
 		ft_strjoin_n(mass, flags);
-	if (flags.minus)
-		counter += ft_print_width(width, 0, flags.zero);
+	counter += ft_print_width(flags.width, len, flags.zero);
 	if (!flags.minus)
 		ft_strjoin_n(mass, flags);
 	return (counter + len);

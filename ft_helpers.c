@@ -29,7 +29,7 @@ int	ft_handle_int_flags(t_flags flags, int i, char **mass)
 	if (!(minus = 0) && i < 0)
 		minus++;
 	if ((!(counter = 0) && (!flags.minus && !flags.zero)) || (flags.zero
-			&& flags.precisionset && flags.precision < flags.width))
+			&& flags.precisionset && flags.precision < flags.width && !flags.minus))
 		counter += ft_print_width(flags.width, ft_max(len + minus,
 			flags.precision + minus), 0);
 	if (i < 0 && ++counter)
@@ -63,7 +63,7 @@ int	ft_handle_u_flags(t_flags flags, char **mass, unsigned int i)
 			ft_max(len + counter, flags.precision), 1);
 	if (flags.precision > len)
 		counter += ft_print_width(flags.precision, len, 1);
-	if ((flags.precisionset && flags.precision) || !flags.precisionset)
+	if ((((flags.precisionset && flags.precision) || !flags.precisionset) && !i) || i)
 		ft_putstr(*mass);
 	else
 		len = 0;
@@ -88,7 +88,7 @@ int	ft_handle_x_flags(t_flags flags, unsigned int i, int x)
 			ft_max(len + counter, flags.precision), 1);
 	if (flags.precision > len)
 		counter += ft_print_width(flags.precision, len, 1);
-	if ((flags.precisionset && flags.precision) || !flags.precisionset)
+	if ((((flags.precisionset && flags.precision) || !flags.precisionset) && !i) || i)
 		ft_putstr(mass);
 	else
 		len = 0;

@@ -99,8 +99,6 @@ int	ft_inner_printf(char *line, va_list *args)
 			flags = ft_init_flags();
 			line++;
 			output += ft_sort_flags(&(line), &(*args), &flags);
-			if (!output)
-				return (0);
 		}
 		else
 			output += ft_print_chars(&line);

@@ -23,11 +23,12 @@ void	ft_add_width(char **line, t_flags *flags)
 {
 	(*flags).width = 0;
 	if (*line)
-		while (ft_isdigit(**line))
-		{
+	{
+		while (ft_isdigit(**line)) {
 			(*flags).width = ((*flags).width * 10) + **line - '0';
 			(*line)++;
 		}
+	}
 }
 
 void	ft_add_unspecified_width(va_list *args, char **line, t_flags *flags)
@@ -37,6 +38,7 @@ void	ft_add_unspecified_width(va_list *args, char **line, t_flags *flags)
 	{
 		(*flags).width *= -1;
 		(*flags).minus = 1;
+		(*flags).zero = 0;
 	}
 	(*line)++;
 }
