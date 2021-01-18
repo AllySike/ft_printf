@@ -6,7 +6,7 @@
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:11:01 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/13 17:25:56 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/18 09:59:58 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ size_t *len, unsigned long long int *width, t_flags flags)
 	}
 	else if (!n && ((flags.precisionset && flags.precision)))
 		*len = flags.precision;
-
 }
 
 char					*ft_ptoa(unsigned long long int n, t_flags flags)

@@ -6,7 +6,7 @@
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 02:18:13 by marvin            #+#    #+#             */
-/*   Updated: 2021/01/12 18:15:38 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/18 09:59:49 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_add_width(char **line, t_flags *flags)
 	(*flags).width = 0;
 	if (*line)
 	{
-		while (ft_isdigit(**line)) {
+		while (ft_isdigit(**line))
+		{
 			(*flags).width = ((*flags).width * 10) + **line - '0';
 			(*line)++;
 		}

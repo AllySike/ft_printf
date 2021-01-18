@@ -6,7 +6,7 @@
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 19:13:38 by kgale             #+#    #+#             */
-/*   Updated: 2021/01/13 16:13:33 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/18 10:00:12 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		ft_str_flags(t_flags *flags, char **mass)
 	}
 	if ((*flags).width < (*flags).precision && (*flags).precisionset
 	&& (*flags).width && len > (*flags).precision)
-		len = (*flags).width;
+		len = (*flags).precision;
 	if ((*flags).precisionset && len > (*flags).precision)
 		return ((*flags).precision);
 	return (len);

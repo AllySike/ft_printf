@@ -6,7 +6,7 @@
 /*   By: kgale <kgale@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 02:17:36 by marvin            #+#    #+#             */
-/*   Updated: 2021/01/12 18:07:40 by kgale            ###   ########.fr       */
+/*   Updated: 2021/01/18 09:59:55 by kgale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,11 @@ int				ft_int_flags(t_flags *flags, char **mass, int i)
 		(*flags).precision = 0;
 		(*flags).precisionset = 0;
 	}
-	if (i && !(*flags).precision && (*flags).precisionset)
-	{
-		(*flags).precision = 0;
-		(*flags).precisionset = 0;
-	}
 	*mass = ft_itoa(i);
 	len = ft_strlen(*mass);
+	if (!(((((*flags).precisionset && (*flags).precision)
+			|| !(*flags).precisionset) && !i) || i))
+		len = 0;
 	return (len);
 }
 
